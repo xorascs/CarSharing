@@ -1,0 +1,28 @@
+﻿@model CarSharing.Models.User
+
+@{
+    ViewData["Title"] = "Account";
+}
+
+<h2 class="mb-4">Account Details</h2>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name @Model.Surname</h5>
+        <p class="card-text">
+            <strong>Username:</strong> @Model.Login
+            @if (Model.IsAdmin)
+            {
+                <span class="badge bg-success">Admin</span>
+            }
+            <br />
+            <strong>Email:</strong> @Model.Email
+            <br />
+            <strong>Address:</strong> @Model.Address, @Model.PostalCode
+        </p>
+        <div class="mt-3">
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+        </div>
+    </div>
+</div>

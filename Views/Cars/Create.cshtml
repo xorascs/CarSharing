@@ -1,0 +1,99 @@
+﻿@model CarSharing.Models.Car
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="display-4">Create</h1>
+<hr />
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="BrandId" class="control-label"></label>
+                            <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId">
+                                <option value="" selected disabled>-- Select Brand --</option>
+                            </select>
+                            <span asp-validation-for="BrandId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FuelType" class="control-label"></label>
+                            <select asp-for="FuelType" class="form-control">
+                                <option value="" selected disabled>-- Select Fuel Type --</option>
+                                @foreach (var type in Enum.GetValues(typeof(FuelTypes)))
+                                {
+                                    <option value="@type">@type</option>
+                                }
+                            </select>
+                            <span asp-validation-for="FuelType" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Model" class="control-label"></label>
+                            <input asp-for="Model" class="form-control" />
+                            <span asp-validation-for="Model" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Color" class="control-label"></label>
+                            <select asp-for="Color" class="form-control">
+                                <option value="" selected disabled>-- Select Color --</option>
+                                @foreach (var color in Enum.GetValues(typeof(Color)))
+                                {
+                                    <option value="@color">@color</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Color" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="ManufacturingDate" class="control-label"></label>
+                            <input asp-for="ManufacturingDate" class="form-control" />
+                            <span asp-validation-for="ManufacturingDate" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Price" class="control-label"></label>
+                            <input asp-for="Price" class="form-control" />
+                            <span asp-validation-for="Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="ImagePaths" class="control-label"></label>
+                            <input name="ImagePaths" id="fileInput" type="file" multiple class="form-control" accept="image/jpeg, image/jpg, image/png" required/>
+                            <span class="text-danger" id="fileInputError"></span>
+                            <span asp-validation-for="ImagePaths" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("fileInput").addEventListener("change", function () {
+            // Get the selected files
+            var files = this.files;
+            // Define the maximum number of files allowed
+            var maxFiles = 3; // Set your desired maximum limit here
+
+            // Check if the number of selected files exceeds the maximum limit
+            if (files.length > maxFiles) {
+                document.getElementById("fileInputError").innerText = "You can only upload a maximum of " + maxFiles + " files.";
+                // Clear the selected files
+                this.value = null;
+            } else {
+                document.getElementById("fileInputError").innerText = "";
+            }
+        });
+    </script>
+}

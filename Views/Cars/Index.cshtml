@@ -1,0 +1,121 @@
+﻿@model IEnumerable<CarSharing.Models.Car>
+@{
+    ViewData["Title"] = "List of Cars";
+}
+
+<h1 class="text-center display-4">Cars</h1>
+<hr />
+
+@if (ViewBag.isAdmin == 1 && ViewBag.Name != null)
+{
+    <p class="text-center">
+        <a asp-action="Create" class="btn btn-primary">Add New Car</a>
+    </p>
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <form method="get" action="@Url.Action("Index")">
+                    <h5 class="card-title">Filters</h5>
+                    <div class="mb-3">
+                        <label for="brandId" class="form-label">Brand</label>
+                        <select name="brandId" id="brandId" class="form-select">
+                            <option value="">All Brands</option>
+                            @foreach (var brand in ViewBag.Brands)
+                            {
+                                <option value="@brand.Id">@brand.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="fuelType" class="form-label">Fuel Type</label>
+                        <select name="fuelType" id="fuelType" class="form-select">
+                            <option value="">All</option>
+                            @foreach (var type in Enum.GetValues(typeof(FuelTypes)))
+                            {
+                                <option value="@type">@type</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="color" class="form-label">Color</label>
+                        <select name="color" id="color" class="form-select">
+                            <option value="">All</option>
+                            @foreach (var color in Enum.GetValues(typeof(Color)))
+                            {
+                                <option value="@color">@color</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="priceRange" class="form-label">Price Range</label>
+                        <select name="priceRange" id="priceRange" class="form-select">
+                            <option value="">All</option>
+                            <option value="1-50">$1 - $50</option>
+                            <option value="51-100">$51 - $100</option>
+                            <option value="101-200">$101 - $200</option>
+                            <option value="201-300">$201 - $300</option>
+                            <option value="301-400">$301 - $400</option>
+                            <option value="401-600">$401 - $600</option>
+                            <option value="601-999">$601 - $999</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="manufacturingDateRange" class="form-label">Manufacturing Date Range</label>
+                        <input type="date" name="startDate" id="startDate" class="form-control mb-2">
+                        <input type="date" name="endDate" id="endDate" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            @foreach (var car in Model)
+            {
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-img-top">
+                            @if (car.ImagePaths != null && car.ImagePaths.Any())
+                            {
+                                <img src="@Url.Content("~/uploads/" + car.ImagePaths.First())" class="img-fluid rounded-top" alt="Car Image" style="width: 100%; max-height: 250px; min-height: 250px; object-fit: cover;">
+                            }
+                            else
+                            {
+                                <img src="~/images/default-car.jpg" class="img-fluid rounded-top" alt="Default Car Image">
+                            }
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title d-flex align-items-center mb-3">
+                                <span class="flex-grow-1">
+                                    @car.Brand!.Name @car.Model
+                                    @if (car.FuelType == FuelTypes.Electric)
+                                    {
+                                        <span class="badge bg-success ms-1 rounded-circle">E</span>
+                                    }
+                                </span>
+                                <span class="badge bg-success" style="right: 4%;">@car.Price $/h</span>
+                            </h5>
+                            <p class="card-text mb-1">
+                                <strong>Fuel Type:</strong> @car.FuelType<br>
+                                <strong>Color:</strong> @car.Color<br>
+                                <strong>Manufacturing Date:</strong> @car.ManufacturingDate.ToShortDateString()<br>
+                            </p>
+                            <div class="d-grid gap-2">
+                                <a href="@Url.Action("Details", new { id = car.Id })" class="btn btn-primary mt-3">Details</a>
+                                @if (ViewBag.isAdmin == 1 && ViewBag.Name != null)
+                                {
+                                    <a href="@Url.Action("Edit", new { id = car.Id })" class="btn btn-secondary">Edit</a>
+                                    <a href="@Url.Action("Delete", new { id = car.Id })" class="btn btn-danger">Delete</a>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

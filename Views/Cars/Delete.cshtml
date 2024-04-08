@@ -1,0 +1,106 @@
+﻿@model CarSharing.Models.Car
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<style>
+    .img-thumbnail {
+        cursor: pointer;
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+<div>
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="display-4">Delete</h1>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Brand)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Brand!.Name)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.FuelType)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.FuelType)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Model)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Model)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Color)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Color)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.ManufacturingDate)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.ManufacturingDate)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Price) $/h
+                </dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="Id" />
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </form>
+        </div>
+        <!-- Images Modal -->
+        <div class="col-md-6">
+            <h4 class="display-4">Car Images</h4>
+            <hr />
+            <div class="d-flex flex-wrap">
+                @if (Model.ImagePaths != null && Model.ImagePaths.Any())
+                {
+                    foreach (var imagePath in Model.ImagePaths)
+                    {
+                        <img src="~/uploads/@imagePath" alt="Existing Image" class="img-thumbnail mx-2 mb-2" style="width: 350px; height: 200px;" data-bs-toggle="modal" data-bs-target="#imageModal" />
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <!-- Added modal-xl class for extra large size -->
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" id="modalImage" class="img-fluid mx-auto d-block" style="width: 1500px;" alt="Modal Image" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Set modal image source when an image thumbnail is clicked
+        var imageThumbnails = document.querySelectorAll('.img-thumbnail');
+        var modalImage = document.getElementById('modalImage');
+
+        imageThumbnails.forEach(function (thumbnail) {
+            thumbnail.addEventListener('click', function () {
+                modalImage.src = thumbnail.src;
+            });
+        });
+    </script>
+}

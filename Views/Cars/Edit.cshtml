@@ -1,0 +1,141 @@
+﻿@model CarSharing.Models.Car
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<style>
+    .img-thumbnail {
+        cursor: pointer;
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+
+<h1 class="mt-4 display-4">Edit Car</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="BrandId" class="control-label">Brand</label>
+                        <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                        <span asp-validation-for="BrandId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="FuelType" class="control-label">Fuel Type</label>
+                        <select asp-for="FuelType" class="form-control">
+                            @foreach (var type in Enum.GetValues(typeof(FuelTypes)))
+                            {
+                                <option value="@type">@type</option>
+                            }
+                        </select>
+                        <span asp-validation-for="FuelType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Model" class="control-label">Model</label>
+                        <input asp-for="Model" class="form-control" />
+                        <span asp-validation-for="Model" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Color" class="control-label">Color</label>
+                        <select asp-for="Color" class="form-control">
+                            @foreach (var color in Enum.GetValues(typeof(Color)))
+                            {
+                                <option value="@color">@color</option>
+                            }
+                        </select>
+                        <span asp-validation-for="Color" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ManufacturingDate" class="control-label">Manufacturing Date</label>
+                        <input asp-for="ManufacturingDate" class="form-control" />
+                        <span asp-validation-for="ManufacturingDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Price" class="control-label"></label>
+                        <div class="input-group">
+                            <input asp-for="Price" class="form-control" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">per hour</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImagePaths" class="control-label">Upload Images</label>
+                        <input name="ImagePaths" id="fileInput" type="file" multiple class="form-control" accept="image/jpeg, image/jpg, image/png" />
+                        <span class="text-danger" id="fileInputError"></span>
+                        <span asp-validation-for="ImagePaths" class="text-danger"></span>
+                    </div>
+                    @if (Model.ImagePaths != null && Model.ImagePaths.Any())
+                    {
+                        <div class="form-group">
+                            <div class="d-flex flex-wrap">
+                                @foreach (var imagePath in Model.ImagePaths)
+                                {
+                                    <img src="~/uploads/@imagePath" alt="Existing Image" class="img-thumbnail mx-2 mb-2" style="width: 350px; height: 200px;" data-bs-toggle="modal" data-bs-target="#imageModal" />
+                                }
+                            </div>
+                        </div>
+                    }
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <!-- Added modal-xl class for extra large size -->
+        <div class="modal-content">
+            <div class="modal-body">
+                <img src="" id="modalImage" class="img-fluid mx-auto d-block" style="width: 1500px;" alt="Modal Image" />
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("fileInput").addEventListener("change", function () {
+            // Get the selected files
+            var files = this.files;
+            // Define the maximum number of files allowed
+            var maxFiles = 3; // Set your desired maximum limit here
+
+            // Check if the number of selected files exceeds the maximum limit
+            if (files.length > maxFiles) {
+                document.getElementById("fileInputError").innerText = "You can only upload a maximum of " + maxFiles + " files.";
+                // Clear the selected files
+                this.value = null;
+            } else {
+                document.getElementById("fileInputError").innerText = "";
+            }
+        });
+
+        // Set modal image source when an image thumbnail is clicked
+        var imageThumbnails = document.querySelectorAll('.img-thumbnail');
+        var modalImage = document.getElementById('modalImage');
+
+        imageThumbnails.forEach(function (thumbnail) {
+            thumbnail.addEventListener('click', function () {
+                modalImage.src = thumbnail.src;
+            });
+        });
+    </script>
+}
