@@ -24,6 +24,5 @@ namespace CarSharing.Models
         [Display(Name = "Postal Code")]
         [DataType(DataType.PostalCode)]
         public required string PostalCode { get; set; }
-
     }
 }

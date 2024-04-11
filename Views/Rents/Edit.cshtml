@@ -1,0 +1,94 @@
+﻿@model CarSharing.Models.Rents
+
+@{
+    ViewData["Title"] = "Edit Rent";
+}
+
+<h1 class="mt-4 display-4 animate__animated animate__fadeIn">Edit Rent</h1>
+<hr class="animate__animated animate__fadeIn animation-delay-05s" />
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card shadow-sm animate__animated animate__slideInUp">
+            <div class="card-img-top">
+                @if (Model.Car!.ImagePaths != null && Model.Car!.ImagePaths.Any())
+                {
+                    <img src="@Url.Content("~/uploads/" + Model.Car!.ImagePaths.First())" class="img-fluid rounded-top animate__animated animate__fadeInUp animation-delay-05s" alt="Car Image" style="width: 100%; max-height: 250px; min-height: 250px; object-fit: cover;">
+                }
+                else
+                {
+                    <img src="~/images/default-car.jpg" class="img-fluid rounded-top" alt="Default Car Image">
+                }
+            </div>
+            <div class="card-body">
+                <h5 class="card-title d-flex align-items-center mb-2">
+                    <span class="flex-grow-1 animate__animated animate__fadeInUp animation-delay-1s">
+                        @Model.Car!.Brand!.Name @Model.Car!.Model
+                        @if (Model.Car!.FuelType == FuelTypes.Electric)
+                        {
+                            <span class="badge bg-success ms-1 rounded-circle">E</span>
+                        }
+                    </span>
+                    <span class="badge bg-success animate__animated animate__fadeInUp animation-delay-1s" style="right: 4%;">@Model.Car!.Price $/h</span>
+                </h5>
+                <form asp-action="Edit" class="animate__animated animate__fadeIn animation-delay-125s">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="form-group">
+                        <label asp-for="UserId" class="control-label"></label>
+                        <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                        <span asp-validation-for="UserId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CarId" class="control-label"></label>
+                        <select asp-for="CarId" class="form-control" asp-items="ViewBag.CarId"></select>
+                        <span asp-validation-for="CarId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RentTime" class="control-label"></label>
+                        <input type="datetime" asp-for="RentTime" class="form-control" />
+                        <span asp-validation-for="RentTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimeForRent" class="control-label"></label>
+                        <div class="input-group">
+                            <input min="4" max="24" asp-for="TimeForRent" class="form-control" />
+                            <div class="input-group-append">
+                                <span class="input-group-text">hours</span>
+                            </div>
+                        </div>
+                        <span asp-validation-for="TimeForRent" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CardNumber" class="control-label"></label>
+                        <input asp-for="CardNumber" class="form-control" />
+                        <span asp-validation-for="CardNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CardHolderName" class="control-label"></label>
+                        <input asp-for="CardHolderName" class="form-control" />
+                        <span asp-validation-for="CardHolderName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CardExDate" class="control-label"></label>
+                        <input type="month" asp-for="CardExDate" class="form-control" />
+                        <span asp-validation-for="CardExDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CVV" class="control-label"></label>
+                        <input asp-for="CVV" class="form-control" />
+                        <span asp-validation-for="CVV" class="text-danger"></span>
+                    </div>
+                    <div class="form-group my-2">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

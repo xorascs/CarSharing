@@ -1,0 +1,74 @@
+﻿@model IEnumerable<CarSharing.Models.Rents>
+
+@{
+    ViewData["Title"] = "List of Rents";
+
+    float delay = 0.5f;
+}
+
+<h1 class="text-center display-4 animate__animated animate__fadeIn">All Rents</h1>
+<hr class="animate__animated animate__fadeIn" />
+
+<div class="col-md-12">
+    <div class="row">
+        @if (Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm animate__animated animate__bounceInLeft" style="animation-delay: @(delay * 0.1)s;">
+                        <div class="card-img-top">
+                            @if (item.Car!.ImagePaths != null && item.Car!.ImagePaths.Any())
+                            {
+                                <img src="@Url.Content("~/uploads/" + item.Car!.ImagePaths.First())" class="img-fluid rounded-top" alt="Car Image" style="width: 100%; max-height: 250px; min-height: 250px; object-fit: cover;">
+                            }
+                            else
+                            {
+                                <img src="~/images/default-car.jpg" class="img-fluid rounded-top" alt="Default Car Image">
+                            }
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title d-flex align-items-center mb-2">
+                                <span class="flex-grow-1">
+                                    @item.Car!.Brand!.Name @item.Car!.Model
+                                    @if (item.Car!.FuelType == FuelTypes.Electric)
+                                    {
+                                        <span class="badge bg-success ms-1 rounded-circle">E</span>
+                                    }
+                                </span>
+                                <span class="badge bg-success" style="right: 4%;">@item.Car!.Price $/h</span>
+                            </h5>
+                            <p class="card-text mb-1">
+                                <strong>Fuel Type:</strong> @item.Car!.FuelType<br>
+                                <strong>Color:</strong> @item.Car!.Color<br>
+                                <strong>Manufacturing Date:</strong> @Html.DisplayFor(modelItem => item.Car.ManufacturingDate)<br>
+                                <br>
+                                <strong>User:</strong> @item.User!.Name "@item.User!.Login" @item.User!.Surname<br>
+                                <strong>User Email:</strong> @item.User!.Email<br>
+                                <strong>Rent Time:</strong> @Html.DisplayFor(modelItem => item.RentTime)<br>
+                                <strong>Time for Rent:</strong> @Html.DisplayFor(modelItem => item.TimeForRent) hours<br>
+                                <div class="card shadow-sm mt-4">
+                                    <div class="card-body">
+                                        @item.CardNumber<br />
+                                        @item.CardHolderName<br />
+                                        @Html.DisplayFor(modelItem => item.CardExDate)<br />
+                                        <span class="float-end">@item.CVV</span>
+                                    </div>
+                                </div>
+                            </p>
+                            <div class="d-grid gap-2">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Stop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                delay++;
+            }
+        }
+        else
+        {
+            <p class="animate__animated animate__fadeIn animation-delay-1s">There is no any rents.</p>
+        }
+    </div>
+</div>

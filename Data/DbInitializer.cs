@@ -8,7 +8,7 @@ namespace CarSharing.Data
         public static void Initialize(DataContext context)
         {
             // Check if any data exists in the database
-            if (context.Brands.Any() || context.Cars.Any())
+            if (context.Brands.Any())
             {
                 // Database has been seeded
                 return;

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CarSharing.Data;
 using CarSharing.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CarSharing.Controllers
 {
@@ -69,7 +70,7 @@ namespace CarSharing.Controllers
         }
 
         // GET: Cars
-        public async Task<IActionResult> Index(int? brandId, FuelTypes? fuelType, Color? color, string priceRange, DateTime? startDate, DateTime? endDate)
+        public async Task<IActionResult> Index(int? brandId, Status? status, FuelTypes? fuelType, Color? color, string priceRange, DateTime? startDate, DateTime? endDate)
         {
             IQueryable<Car> cars = _context.Cars.Include(c => c.Brand);
 
@@ -77,6 +78,12 @@ namespace CarSharing.Controllers
             if (brandId != null)
             {
                 cars = cars.Where(c => c.BrandId == brandId);
+            }
+
+            // Apply brand filter if brandId is provided
+            if (status != null)
+            {
+                cars = cars.Where(c => c.Status == status);
             }
 
             // Apply fuel type filter if fuelType is provided
@@ -101,6 +108,10 @@ namespace CarSharing.Controllers
             // Apply manufacturing date range filter if startDate and endDate are provided
             if (startDate != null && endDate != null)
             {
+                if (startDate > endDate)
+                {
+                    return BadRequest();
+                }
                 cars = cars.Where(c => c.ManufacturingDate >= startDate && c.ManufacturingDate <= endDate);
             }
 
@@ -366,6 +377,68 @@ namespace CarSharing.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Rent(int id, int rentalHours, string cardNumber, string cardHolderName, DateTime expirationDate, int cvv)
+        {
+            // Find the car by its id
+            var car = await _context.Cars.FindAsync(id);
+
+            if (car!.Status == Status.Renting)
+            {
+                return BadRequest();
+            }
+
+            if (car == null)
+            {
+                return NotFound(); // Car not found, return Not Found status
+            }
+
+            // Check if the user is logged in
+            if (!IsLoggedIn())
+            {
+                // Redirect to the login page or display a message
+                return RedirectToAction("Login", "Users"); // Redirect to the login page
+            }
+
+            // Retrieve the user from the session
+            var userId = _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
+            var user = await _context.Users.FindAsync(userId);
+
+            if (user == null)
+            {
+                // Handle case when user is not found
+                return RedirectToAction("Index", "Home"); // Redirect to home page or display a message
+            }
+
+            // Update the car status to indicate that it is currently being rented
+            car.Status = Status.Renting;
+
+            // Create a new rent entry
+            var rent = new Rents
+            {
+                UserId = user.Id,
+                User = user,
+                CarId = car.Id,
+                Car = car,
+                RentTime = DateTime.Now, // Record the current date and time as the rental time
+                TimeForRent = rentalHours,
+                CardNumber = cardNumber,
+                CardHolderName = cardHolderName,
+                CardExDate = expirationDate,
+                CVV = cvv,
+            };
+
+            // Add the rent to the context and save changes
+            _context.Rents.Add(rent);
+
+            // Save changes to the database
+            await _context.SaveChangesAsync();
+
+            // Redirect to a page showing successful rental or display a message
+            return RedirectToAction("Account", "Users"); // Redirect to the home page or a confirmation page
+        }
+
         private bool CarExists(int id)
         {
             return _context.Cars.Any(e => e.Id == id);
@@ -373,6 +446,10 @@ namespace CarSharing.Controllers
         private bool IsAdminJoined()
         {
             return ViewBag.Name != null && ViewBag.isAdmin == 1;
+        }
+        private bool IsLoggedIn()
+        {
+            return !_httpContextAccessor.HttpContext!.Session.GetString("Name").IsNullOrEmpty();
         }
     }
 }

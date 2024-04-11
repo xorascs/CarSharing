@@ -1,17 +1,18 @@
 ﻿@model CarSharing.Models.User
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete User";
 }
 
-<h1 class="text-center display-4">Delete</h1>
 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <dl class="row">
+            <div class="card animate__animated animate__slideInUp">
+                <div class="card-body animate__animated animate__fadeIn animation-delay-05s">
+                    <h1 class="card-title text-center display-4">Delete</h1>
+                    <hr />
+                    <dl class="row animate__animated animate__fadeIn animation-delay-075s">
                         <dt class="col-sm-3">Login:</dt>
                         <dd class="col-sm-9">@Html.DisplayFor(model => model.Login) 
                             @if (Model.IsAdmin)
@@ -30,11 +31,18 @@
                         <dt class="col-sm-3">Postal Code:</dt>
                         <dd class="col-sm-9">@Html.DisplayFor(model => model.PostalCode)</dd>
                     </dl>
-                    <form asp-action="Delete">
+                    <form asp-action="Delete" class="animate__animated animate__fadeIn animation-delay-075s">
                         <input type="hidden" asp-for="Id" />
                         <div class="text-center">
                             <button type="submit" class="btn btn-danger">Delete</button>
-                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                            @if (ViewBag.isAdmin == 1)
+                            {
+                                <a asp-action="Index" class="btn btn-secondary my-2">Back to List</a>
+                            }
+                            else
+                            {
+                                <a asp-action="Account" class="btn btn-secondary my-2">Back to Account</a>
+                            }
                         </div>
                     </form>
                 </div>

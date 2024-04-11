@@ -1,28 +1,103 @@
-﻿@model CarSharing.Models.User
+﻿@model CarSharing.Models.UserViewModel
 
 @{
-    ViewData["Title"] = "Account";
+    ViewData["Title"] = "My Account";
 }
 
-<h2 class="mb-4">Account Details</h2>
-
-<div class="card">
-    <div class="card-body">
-        <h5 class="card-title">@Model.Name @Model.Surname</h5>
-        <p class="card-text">
-            <strong>Username:</strong> @Model.Login
-            @if (Model.IsAdmin)
-            {
-                <span class="badge bg-success">Admin</span>
-            }
-            <br />
-            <strong>Email:</strong> @Model.Email
-            <br />
-            <strong>Address:</strong> @Model.Address, @Model.PostalCode
-        </p>
-        <div class="mt-3">
-            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-            <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger">Delete</a>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4 animate__animated animate__slideInLeft">
+                <div class="card-body">
+                    <h2 class="card-title animate__animated animate__fadeIn animation-delay-05s">@Model.User!.Name @Model.User!.Surname</h2>
+                    <p class="card-text animate__animated animate__fadeIn animation-delay-075s">
+                        <strong>Login:</strong> @Model.User!.Login
+                        @if (@Model.User!.IsAdmin)
+                        {
+                            <span class="badge bg-success">Admin</span>
+                        }
+                        <br />
+                        <strong>Email:</strong> @Model.User!.Email
+                        <br />
+                        <strong>Address:</strong> @Model.User!.Address, @Model.User!.PostalCode
+                    </p>
+                    <div class="mt-3 animate__animated animate__fadeIn animation-delay-075s">
+                        <a asp-action="Edit" asp-route-id="@Model.User!.Id" class="btn btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@Model.User!.Id" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card animate__animated animate__slideInUp">
+                <div class="card-body animate__animated animate__fadeIn animation-delay-05s">
+                    <h2 class="card-title text-center display-4">My Rents</h2>
+                    <hr />
+                    @if (Model.Rents != null && Model.Rents.Any())
+                    {
+                        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 overflow-hidden">
+                            @foreach (var item in Model.Rents)
+                            {
+                                <div class="col mb-4 animate__animated animate__slideInUp animation-delay-075s">
+                                    <div class="card h-100 shadow-sm">
+                                        <div class="card-img-top">
+                                            @if (item.Car != null && item.Car.ImagePaths != null && item.Car.ImagePaths.Any())
+                                            {
+                                                <img src="@Url.Content("~/uploads/" + item.Car.ImagePaths.First())" class="img-fluid rounded-top" alt="Car Image" style="width: 100%; max-height: 250px; min-height: 250px; object-fit: cover;">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/images/default-car.jpg" class="img-fluid rounded-top" alt="Default Car Image">
+                                            }
+                                        </div>
+                                        <div class="card-body">
+                                            <h5 class="card-title d-flex align-items-center mb-3">
+                                                <span class="flex-grow-1">
+                                                    @item.Car!.Brand!.Name @item.Car.Model
+                                                    @if (item.Car.FuelType == FuelTypes.Electric)
+                                                    {
+                                                        <span class="badge bg-success ms-1 rounded-circle">E</span>
+                                                    }
+                                                </span>
+                                                <span class="badge bg-success" style="right: 4%;">@item.Car.Price $/h</span>
+                                            </h5>
+                                            <p class="card-text mb-1">
+                                                <strong>Fuel Type:</strong> @item.Car.FuelType<br>
+                                                <strong>Color:</strong> @item.Car.Color<br>
+                                                <strong>Manufacturing Date:</strong> @Html.DisplayFor(modelItem => item.Car.ManufacturingDate)<br>
+                                                <div class="card shadow-sm mt-4">
+                                                    <div class="card-body">
+                                                        @item.CardNumber<br />
+                                                        @item.CardHolderName<br />
+                                                        @Html.DisplayFor(modelItem => item.CardExDate)<br />
+                                                        <span class="float-end">@item.CVV</span>
+                                                    </div>
+                                                </div>
+                                            </p>
+                                            <div class="d-grid gap-2">
+                                                <a href="@Url.Action("Details", "Cars", new { id = item.Car!.Id })" class="btn btn-primary mt-3">Car Details</a>
+                                                @if (ViewBag.isAdmin == 1)
+                                                {
+                                                    <a asp-controller="Rents" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Edit</a>
+                                                }
+                                                <a asp-controller="Rents" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Stop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info animate__animated animate__fadeIn animation-delay-075s" role="alert">
+                            There are no orders in your list.
+                        </div>
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </div>

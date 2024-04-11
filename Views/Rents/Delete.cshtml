@@ -1,0 +1,78 @@
+﻿@model CarSharing.Models.Rents
+
+@{
+    ViewData["Title"] = "Stop Rent";
+}
+
+<h1 class="mt-4 display-4 animate__animated animate__fadeIn">Stop Rent</h1>
+<hr class="animate__animated animate__fadeIn animation-delay-05s" />
+
+<div class="card mt-4 animate__animated animate__slideInUp">
+    <div class="card-img-top">
+        @if (Model.Car!.ImagePaths != null && Model.Car!.ImagePaths.Any())
+        {
+            <img src="@Url.Content("~/uploads/" + Model.Car!.ImagePaths.First())" class="img-fluid rounded-top animate__animated animate__fadeInUp animation-delay-05s" alt="Car Image" style="width: 100%; max-height: 250px; min-height: 250px; object-fit: cover;">
+        }
+        else
+        {
+            <img src="~/images/default-car.jpg" class="img-fluid rounded-top" alt="Default Car Image">
+        }
+    </div>
+    <div class="card-body">
+        <h5 class="card-title d-flex align-items-center mb-2">
+            <span class="flex-grow-1 animate__animated animate__fadeInUp animation-delay-1s">
+                @Model.Car!.Brand!.Name @Model.Car!.Model
+                @if (Model.Car!.FuelType == FuelTypes.Electric)
+                {
+                    <span class="badge bg-success ms-1 rounded-circle">E</span>
+                }
+            </span>
+            <span class="badge bg-success animate__animated animate__fadeInUp animation-delay-1s" style="right: 4%;">@Model.Car!.Price $/h</span>
+        </h5>
+        <dl class="row animate__animated animate__fadeIn animation-delay-125s">
+            <dt class="col-sm-3">User</dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(modelItem => modelItem.User!.Name)
+                "@Html.DisplayFor(modelItem => modelItem.User!.Login)"
+                @Html.DisplayFor(modelItem => modelItem.User!.Surname)
+            </dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(modelItem => modelItem.Car!.Model)</dt>
+            <dd class="col-sm-9">
+                @Html.DisplayFor(modelItem => modelItem.Car!.Brand!.Name)
+                @Html.DisplayFor(modelItem => modelItem.Car!.Model)
+            </dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(modelItem => modelItem.RentTime)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(modelItem => modelItem.RentTime)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(modelItem => modelItem.TimeForRent)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(modelItem => modelItem.TimeForRent) hours</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(modelItem => modelItem.CardNumber)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(modelItem => modelItem.CardNumber)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(modelItem => modelItem.CardHolderName)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(modelItem => modelItem.CardHolderName)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(modelItem => modelItem.CardExDate)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(modelItem => modelItem.CardExDate)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(modelItem => modelItem.CVV)</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(modelItem => modelItem.CVV)</dd>
+        </dl>
+
+        <form asp-action="Delete" class="animate__animated animate__fadeIn animation-delay-125s">
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Stop</button>
+            @if (ViewBag.isAdmin == 1)
+            {
+                <a asp-action="Index" class="btn btn-secondary my-2">Back to List</a>
+            }
+            else
+            {
+                <a asp-controller="Users" asp-action="Account" class="btn btn-secondary my-2">Back to Account</a>
+            }
+        </form>
+    </div>
+</div>

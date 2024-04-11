@@ -1,53 +1,94 @@
-﻿@model IEnumerable<CarSharing.Models.User>
+﻿@model IEnumerable<CarSharing.Models.UserViewModel>
 
 @{
     ViewData["Title"] = "List of Users";
+
+    float delay = 0.2f;
 }
 
 <div class="container">
-    <h1 class="text-center display-4">List of Users</h1>
-    <hr />
-
-    <p class="text-center">
-        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    <h1 class="text-center display-4 animate__animated animate__fadeIn">List of Users</h1>
+    <hr class="animate__animated animate__fadeIn" />
+    <p class="text-center animate__animated animate__fadeIn">
+        <a asp-action="Create" class="btn btn-primary">Create new User</a>
     </p>
 
-    <div class="table-responsive">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Postal Code</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Login)
-                            @if (item.IsAdmin)
+    <div class="row">
+        <!-- Users Section -->
+        @foreach (var user in Model)
+        {
+            <div class="col-md-6 mb-4 animate__animated animate__slideInUp" style="animation-delay: @(delay * 0.1)s">
+                <div class="card shadow-sm">
+                    <h5 class="card-title mb-0 text-center my-3 animate__animated animate__fadeIn animation-delay-075s">
+                        @user.User!.Name @user.User.Surname
+                        @if (user.User.IsAdmin)
+                        {
+                            <span class="badge bg-success">Admin</span>
+                        }
+                    </h5>
+                    <hr class="animate__animated animate__fadeIn animation-delay-075s" />
+                    <div class="card-body animate__animated animate__fadeIn animation-delay-1s">
+                        <p class="card-text"><strong>Login:</strong> @user.User.Login</p>
+                        <p class="card-text"><strong>Email:</strong> @user.User.Email</p>
+                        <p class="card-text"><strong>Address:</strong> @user.User.Address, @user.User.PostalCode</p>
+                        <h6 class="card-subtitle mt-4 mb-2 text-muted">Rented Cars
+                            <span class="badge bg-success">@user.Rents.Count()</span>
+                        </h6>
+                        <div class="row">
+                            @foreach (var rent in user.Rents)
                             {
-                                <span class="badge bg-success">Admin</span>
+                                <div class="col-md-6 mb-3 animate__animated animate__zoomIn animation-delay-075s">
+                                    <div class="card">
+                                        <div class="card-img-top">
+                                            @if (rent.Car!.ImagePaths != null && rent.Car!.ImagePaths.Any())
+                                            {
+                                                <img src="@Url.Content("~/uploads/" + rent.Car!.ImagePaths.First())" class="img-fluid rounded-top" alt="Car Image" style="width: 100%; max-height: 150px; min-height: 150px; object-fit: cover;">
+                                            }
+                                            else
+                                            {
+                                                <img src="~/images/default-car.jpg" class="img-fluid rounded-top" alt="Default Car Image">
+                                            }
+                                        </div>
+                                        <div class="card-body">
+                                            <span class="flex-grow-1">
+                                                @rent.Car!.Brand!.Name @rent.Car!.Model
+                                                @if (rent.Car!.FuelType == FuelTypes.Electric)
+                                                {
+                                                    <span class="badge bg-success ms-1 rounded-circle">E</span>
+                                                }
+                                            </span><br />
+                                            <span class="badge bg-success mb-2 my-2">@rent.Car!.Price $/h</span>
+                                            <p class="card-text">
+                                                <strong>Fuel Type:</strong> @rent.Car.FuelType<br />
+                                                <strong>Color:</strong> @rent.Car.Color<br />
+                                                <strong>Rent Time:</strong> @Html.DisplayFor(modelItem => rent.RentTime)<br />
+                                                <strong>Time for Rent:</strong> @Html.DisplayFor(modelItem => rent.TimeForRent) hours
+                                                <div class="card shadow-sm">
+                                                    <div class="card-body">
+                                                        @rent.CardNumber<br />
+                                                        @rent.CardHolderName<br />
+                                                        @Html.DisplayFor(modelItem => rent.CardExDate)<br />
+                                                        <span class="float-end">@rent.CVV</span>
+                                                    </div>
+                                                </div>
+                                            </p>
+                                            <div class="d-grid gap-2">
+                                                <a asp-action="Edit" asp-controller="Rents" asp-route-id="@rent.Id" class="btn btn-primary">Edit</a>
+                                                <a asp-action="Delete" asp-controller="Rents" asp-route-id="@rent.Id" class="btn btn-danger">Stop</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             }
-                        </td>
-                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Surname)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Address)</td>
-                        <td>@Html.DisplayFor(modelItem => item.PostalCode)</td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+                        </div>
+                    </div>
+                    <div class="card-footer animate__animated animate__fadeIn animation-delay-075s">
+                        <a asp-action="Edit" asp-route-id="@user.User.Id" class="btn btn-primary">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@user.User.Id" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+            delay++;
+        }
     </div>
 </div>

@@ -8,30 +8,23 @@ namespace CarSharing.Models
     public class Car
     {
         public int Id { get; set; }
-
         [Display(Name = "Brand")]
         public int BrandId { get; set; }
-
         [Display(Name = "Brand")]
         public Brand? Brand { get; set; }
-
         [Display(Name = "Fuel Type")]
         public FuelTypes FuelType { get; set; }
-
         [Required]
         [StringLength(50)]
         public required string Model { get; set; }
-
         public Color Color { get; set; }
-
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [Display(Name = "Manufacturing Date"), DataType(DataType.Date)]
         public DateTime ManufacturingDate { get; set; }
-
         [Column(TypeName = "decimal(18, 2)")]
         [Display(Name = "Price ($)/h")]
         public decimal Price { get; set; }
-
+        public Status Status { get; set; } = Status.Free;
         [Required(ErrorMessage = "The Images are required")]
         [Display(Name = "Images")]
         public List<string> ImagePaths { get; set; } = new List<string>();
@@ -52,5 +45,11 @@ namespace CarSharing.Models
         Petrol,
         Diesel,
         Electric
+    }
+
+    public enum Status
+    {
+        Renting,
+        Free
     }
 }

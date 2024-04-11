@@ -9,6 +9,7 @@ using CarSharing.Data;
 using CarSharing.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CarSharing.Controllers
 {
@@ -76,11 +77,35 @@ namespace CarSharing.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            return View(await _context.Users.ToListAsync());
+
+            var users = await _context.Users.ToListAsync();
+            var userViewModels = new List<UserViewModel>();
+
+            foreach (var user in users)
+            {
+                var rents = await _context.Rents
+                    .Include(r => r.Car!.Brand)
+                    .Where(r => r.UserId == user.Id)
+                    .ToListAsync();
+
+                var userViewModel = new UserViewModel
+                {
+                    User = user,
+                    Rents = rents
+                };
+
+                userViewModels.Add(userViewModel);
+            }
+
+            return View(userViewModels);
         }
 
         public IActionResult Login()
         {
+            if (IsLoggedIn())
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -116,6 +141,10 @@ namespace CarSharing.Controllers
         // GET: Users/Register
         public IActionResult Register()
         {
+            if (IsLoggedIn())
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -152,15 +181,27 @@ namespace CarSharing.Controllers
             return View(user);
         }
 
-        public IActionResult Account()
+        public async Task<IActionResult> Account()
         {
-            if (ViewBag.Name != null)
+            if (IsLoggedIn())
             {
                 string name = ViewBag.Name;
-                var user = _context.Users.FirstOrDefault(u => u.Name == name);
-                if (user != null)
+                var user = await _context.Users
+                    .FirstOrDefaultAsync(u => u.Name == name);
+                var rents = await _context.Rents
+                    .Include(r => r.Car!.Brand)  // Include the Car navigation property
+                    .Where(r => r.User!.Name == name)
+                    .ToListAsync();
+
+                if (user != null && rents != null)
                 {
-                    return View(user);
+                    var viewModel = new UserViewModel
+                    {
+                        User = user,
+                        Rents = rents,
+                    };
+
+                    return View(viewModel);
                 }
             }
 
@@ -206,7 +247,7 @@ namespace CarSharing.Controllers
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!IsAdminJoined())
+            if (!IsAdminJoined() && id != GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -280,6 +321,10 @@ namespace CarSharing.Controllers
                         _httpContextAccessor.HttpContext!.Session.SetInt32("isAdmin", user.IsAdmin ? 1 : 0);
                     }
 
+                    if (user.Id == GetCurrentUserId() && !IsAdminJoined())
+                    {
+                        return RedirectToAction(nameof(Account));
+                    }
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
@@ -300,7 +345,7 @@ namespace CarSharing.Controllers
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!IsAdminJoined())
+            if (!IsAdminJoined() && id != GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -369,7 +414,15 @@ namespace CarSharing.Controllers
         }
         private bool IsAdminJoined()
         {
-            return ViewBag.Name != null && ViewBag.isAdmin == 1;
+            return _httpContextAccessor.HttpContext!.Session.GetInt32("isAdmin") == 1;
+        }
+        private int? GetCurrentUserId()
+        {
+            return _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
+        }
+        private bool IsLoggedIn()
+        {
+            return !_httpContextAccessor.HttpContext!.Session.GetString("Name").IsNullOrEmpty();
         }
     }
 }

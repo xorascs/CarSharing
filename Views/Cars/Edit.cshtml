@@ -1,7 +1,7 @@
 ﻿@model CarSharing.Models.Car
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Car";
 }
 
 <style>
@@ -12,19 +12,20 @@
     }
 </style>
 
-<h1 class="mt-4 display-4">Edit Car</h1>
-<hr />
+<h1 class="mt-4 display-4 animate__animated animate__fadeIn">Edit Car</h1>
+<hr class="animate__animated animate__fadeIn"/>
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card shadow-sm">
-            <div class="card-body">
+        <div class="card shadow-sm animate__animated animate__slideInUp">
+            <div class="card-body animate__animated animate__fadeIn animation-delay-05s">
                 <form asp-action="Edit" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="Id" />
                     <div class="form-group">
                         <label asp-for="BrandId" class="control-label">Brand</label>
-                        <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                        <select asp-for="BrandId" class="form-control w-100" asp-items="ViewBag.BrandId"></select> 
+                        <a asp-action="Index" asp-controller="Brands" class="btn btn-primary w-100 my-2">Brands Collection</a>
                         <span asp-validation-for="BrandId" class="text-danger"></span>
                     </div>
                     <div class="form-group">
@@ -79,7 +80,7 @@
                             <div class="d-flex flex-wrap">
                                 @foreach (var imagePath in Model.ImagePaths)
                                 {
-                                    <img src="~/uploads/@imagePath" alt="Existing Image" class="img-thumbnail mx-2 mb-2" style="width: 350px; height: 200px;" data-bs-toggle="modal" data-bs-target="#imageModal" />
+                                    <img src="~/uploads/@imagePath" alt="Existing Image" class="img-thumbnail mx-2 mb-2 animate__animated animate__zoomIn animation-delay-075s" style="width: 350px; height: 200px;" data-bs-toggle="modal" data-bs-target="#imageModal" />
                                 }
                             </div>
                         </div>

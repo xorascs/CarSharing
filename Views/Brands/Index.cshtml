@@ -1,0 +1,60 @@
+﻿@model IEnumerable<CarSharing.Models.BrandsViewModel>
+
+@{
+    ViewData["Title"] = "List of Brands";
+
+    float delay = 0.75f;
+}
+
+<p class="animate__animated animate__fadeIn"><a asp-action="Index" asp-controller="Cars" class="text-decoration-none text-secondary">Cars</a> / <a asp-action="Index" class="text-decoration-none text-secondary">Brands</a></p>
+
+<div class="container">
+    <h1 class="text-center display-4 animate__animated animate__fadeIn">Brands</h1>
+    <hr class="animate__animated animate__fadeIn animation-delay-05s" />
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <p class="text-center">
+                <a class="btn btn-primary animate__animated animate__fadeIn animation-delay-05s" asp-action="Create">Create New Brand</a>
+            </p>
+            <div class="table-responsive animate__animated animate__bounceInUp">
+                <table class="table table-striped overflow-hidden">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Brand Name</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="animate__animated animate__bounceInLeft" style="animation-delay: @(delay * 0.1)s;">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Brand)
+                                    @{
+                                        string sign;
+                                        switch (item.ElectricCarsCount)
+                                        {
+                                            case 1:
+                                                sign = "Electric Car";
+                                                break;
+                                            default:
+                                                sign = "Electric Cars";
+                                                break;
+                                        };
+                                    }
+                                    <span class="badge bg-success ms-1">@item.ElectricCarsCount @sign</span>
+                                </td>
+                                <td>
+                                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                            delay++;
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

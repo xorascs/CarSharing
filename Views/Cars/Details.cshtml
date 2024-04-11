@@ -1,7 +1,7 @@
 ﻿@model CarSharing.Models.Car
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details of Car";
 }
 
 <style>
@@ -12,12 +12,12 @@
     }
 </style>
 
-<p><a asp-action="Index" class="text-decoration-none text-secondary">Cars</a> / <a asp-action="Details" class="text-decoration-none text-secondary">@Model.Brand!.Name @Model.Model</a></p>
+<p class="animate__animated animate__fadeIn"><a asp-action="Index" class="text-decoration-none text-secondary">Cars</a> / <a asp-action="Details" class="text-decoration-none text-secondary">@Model.Brand!.Name @Model.Model</a></p>
 
-<div class="row">
+<div class="row animate__animated animate__slideInUp">
     <div class="col-sm-8">
         <!-- Carousel -->
-        <div id="demo" class="carousel slide w-100" data-bs-ride="carousel">
+        <div id="demo" class="carousel slide w-100 animate__animated animate__zoomIn animation-delay-05s" data-bs-ride="carousel">
 
             <!-- Indicators/dots -->
             <div class="carousel-indicators">
@@ -94,16 +94,69 @@
             }
         </h1>
 
+        @switch (Model.Status)
+        {
+            case Status.Renting:
+                <br /><span class="badge bg-primary fs-3 align-middle my-3">Renting</span>
+                break;
+            case Status.Free:
+                <br /><span class="badge bg-success fs-3 align-middle my-3">Ready to Rent</span>
+                break;
+        }
         <h4 class="text-secondary">@Model.FuelType, @Model.Color</h4>
-        <h4 class="text-secondary">Manufacturing Date: @Model.ManufacturingDate.ToShortDateString()</h4>
+        <h4 class="text-secondary">Manufacturing Date: @Html.DisplayFor(model => model.ManufacturingDate)</h4>
         <h4 class="badge bg-light text-dark fs-3 w-100 my-4">@Model.Price $/h</h4>
         <div>
-            @if (ViewBag.isAdmin == 1 && ViewBag.Name != null)
-            {
-                <a asp-action="Edit" asp-route-id="@Model!.Id" class="btn btn-primary w-100 my-2">Edit</a>
-            }
-            <a asp-action="Rent" class="btn btn-success w-100 my-2">Rent a Car</a>
-            <a asp-action="Index" class="btn btn-secondary w-100 my-2">Back to List</a>
+            <!-- Existing code omitted for brevity -->
+            <div>
+                @if (ViewBag.isAdmin == 1 && ViewBag.Name != null)
+                {
+                    <a asp-action="Edit" asp-route-id="@Model!.Id" class="btn btn-primary w-100 my-2 animate__animated animate__bounceInRight animation-delay-05s">Edit</a>
+                }
+                <button id="showPaymentForm" class="btn btn-success w-100 my-2 animate__animated animate__bounceInRight animation-delay-075s" @(Model.Status == Status.Renting ? "disabled" : "")>Rent a Car</button>
+                <div id="paymentForm" style="display: none;" class="animate__animated animate__bounceIn">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <form asp-controller="Cars" asp-action="Rent" method="post">
+                                <input type="hidden" name="id" value="@Model.Id" />
+
+                                <!-- Payment Information Fields -->
+                                <div class="form-group">
+                                    <label for="cardNumber">Card Number:</label>
+                                    <input type="text" class="form-control" id="cardNumber" name="cardNumber" minlength="16" maxlength="16" required pattern="[0-9]+" placeholder="1234123412341234" title="Please enter only numeric characters">
+                                    <div class="invalid-feedback">
+                                        Please enter a valid card number.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cardHolderName">Card Holder Name:</label>
+                                    <input type="text" class="form-control" id="cardHolderName" name="cardHolderName" pattern="[a-zA-Z\s]*" placeholder="John Doe" title="Please enter only alphabetic characters and space">
+                                    <div class="invalid-feedback">
+                                        Please enter a valid card holder name.
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expirationDate">Expiration Date:</label>
+                                    <input type="month" class="form-control" id="expirationDate" name="expirationDate" placeholder="MM/YYYY" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV:</label>
+                                    <input type="number" class="form-control" id="cvv" name="cvv" min="100" max="999" placeholder="333" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="rentalHours">Select Rental Duration (hours):</label>
+                                    <input type="range" class="form-range" min="4" max="24" step="1" id="rentalHours" name="rentalHours" value="14">
+                                    <p for="rentalHours" id="rentalOutput" class="text-center m-0">14 hours</p>
+                                </div>
+
+                                <input type="submit" class="btn btn-success w-100 my-2" value="Confirm Rental" @(Model.Status == Status.Renting ? "disabled" : "")>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <a asp-action="Index" class="btn btn-secondary w-100 my-2 animate__animated animate__bounceInRight animation-delay-1s">Back to List</a>
+            </div>
         </div>
     </div>
 </div>
@@ -129,6 +182,24 @@
             thumbnail.addEventListener('click', function () {
                 modalImage.src = thumbnail.src;
             });
+        });
+
+        // Get the input range and output elements
+        var rentalHoursInput = document.getElementById('rentalHours');
+        var rentalOutput = document.getElementById('rentalOutput');
+
+        // Add event listener to update output text when input value changes
+        rentalHoursInput.addEventListener('input', function() {
+            rentalOutput.textContent = rentalHoursInput.value + ' hours';
+        });
+
+        document.getElementById('showPaymentForm').addEventListener('click', function () {
+            if (document.getElementById('paymentForm').style.display == 'block') {
+                document.getElementById('paymentForm').style.display = 'none';
+            }
+            else {
+                document.getElementById('paymentForm').style.display = 'block';
+            }
         });
     </script>
 }

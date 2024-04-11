@@ -7,12 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CarSharing.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
         /* Custom Styles */
         body {
             font-family: Arial, sans-serif;
             background-color: #f8f9fa;
+            overflow-x: hidden;
         }
 
         .navbar-brand {
@@ -39,6 +41,22 @@
 
         .container-fluid {
             width: 80%;
+        }
+
+        .animation-delay-05s {
+            animation-delay: .5s;
+        }
+        .animation-delay-075s {
+            animation-delay: 0.75s;
+        }
+        .animation-delay-1s {
+            animation-delay: 1s;
+        }
+        .animation-delay-125s {
+            animation-delay: 1.25s;
+        }
+        .animation-delay-15s {
+            animation-delay: 1.5s;
         }
     </style>
 </head>
@@ -70,6 +88,9 @@
                                 <a class="nav-link" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
                             </li>
                             <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Rents" asp-action="Index">Rents</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" asp-area="" asp-controller="Users" asp-action="LogOut">Log out</a>
                             </li>
                         }
@@ -93,7 +114,7 @@
             </div>
         </nav>
     </header>
-    <div class="container" style="padding-top: 100px;">
+    <div class="container" style="padding-top: 100px; margin-bottom: 100px;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

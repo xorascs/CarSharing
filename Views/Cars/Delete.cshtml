@@ -1,7 +1,7 @@
 ﻿@model CarSharing.Models.Car
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Delete Car";
 }
 
 <style>
@@ -14,7 +14,7 @@
 
 <div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 animate__animated animate__slideInLeft">
             <h1 class="display-4">Delete</h1>
             <hr />
             <dl class="row">
@@ -63,7 +63,7 @@
             </form>
         </div>
         <!-- Images Modal -->
-        <div class="col-md-6">
+        <div class="col-md-6 animate__animated animate__slideInRight">
             <h4 class="display-4">Car Images</h4>
             <hr />
             <div class="d-flex flex-wrap">
@@ -71,7 +71,7 @@
                 {
                     foreach (var imagePath in Model.ImagePaths)
                     {
-                        <img src="~/uploads/@imagePath" alt="Existing Image" class="img-thumbnail mx-2 mb-2" style="width: 350px; height: 200px;" data-bs-toggle="modal" data-bs-target="#imageModal" />
+                        <img src="~/uploads/@imagePath" alt="Existing Image" class="img-thumbnail mx-2 mb-2 animate__animated animate__zoomIn animation-delay-075s" style="width: 350px; height: 200px;" data-bs-toggle="modal" data-bs-target="#imageModal" />
                     }
                 }
             </div>

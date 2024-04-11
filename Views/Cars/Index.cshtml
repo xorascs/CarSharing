@@ -3,18 +3,18 @@
     ViewData["Title"] = "List of Cars";
 }
 
-<h1 class="text-center display-4">Cars</h1>
-<hr />
+<h1 class="text-center display-4 animate__animated animate__fadeIn">Cars</h1>
+<hr class="animate__animated animate__fadeIn"/>
 
 @if (ViewBag.isAdmin == 1 && ViewBag.Name != null)
 {
-    <p class="text-center">
+    <p class="text-center animate__animated animate__fadeIn">
         <a asp-action="Create" class="btn btn-primary">Add New Car</a>
     </p>
 }
 
 <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-3 animate__animated animate__slideInLeft">
         <div class="card">
             <div class="card-body">
                 <form method="get" action="@Url.Action("Index")">
@@ -26,6 +26,23 @@
                             @foreach (var brand in ViewBag.Brands)
                             {
                                 <option value="@brand.Id">@brand.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <select name="status" id="status" class="form-select">
+                            <option value="">All Statuses</option>
+                            @foreach (var status in Enum.GetValues(typeof(Status)))
+                            {
+                                @if (status.Equals(Status.Free))
+                                {
+                                    <option value="@status">Ready to Rent</option>
+                                }
+                                else
+                                {
+                                   <option value="@status">@status</option> 
+                                }
                             }
                         </select>
                     </div>
@@ -53,21 +70,22 @@
                         <label for="priceRange" class="form-label">Price Range</label>
                         <select name="priceRange" id="priceRange" class="form-select">
                             <option value="">All</option>
-                            <option value="1-50">$1 - $50</option>
-                            <option value="51-100">$51 - $100</option>
-                            <option value="101-200">$101 - $200</option>
-                            <option value="201-300">$201 - $300</option>
-                            <option value="301-400">$301 - $400</option>
-                            <option value="401-600">$401 - $600</option>
-                            <option value="601-999">$601 - $999</option>
+                            @for (int i = 1; i <= 11; i++)
+                            {
+                                int min = i * 50 + 1;
+                                int max = (i + 1) * 50;
+                                <option value="@($"{min}-{max}")">$@min - $@max</option>
+                            }
                         </select>
                     </div>
                     <div class="mb-3">
                         <label for="manufacturingDateRange" class="form-label">Manufacturing Date Range</label>
-                        <input type="date" name="startDate" id="startDate" class="form-control mb-2">
-                        <input type="date" name="endDate" id="endDate" class="form-control">
+                        <input type="date" name="startDate" id="startDate" class="form-control mb-2" onchange="validateDateRange()">
+                        <input type="date" name="endDate" id="endDate" class="form-control" onchange="validateDateRange()">
+                        <div id="dateError" class="text-danger" style="display: none;">Start date cannot be greater than end date</div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Apply Filters</button>
+                    <button id="applyFiltersButton" type="submit" class="btn btn-primary">Apply Filters</button>
+                    <button id="resetFiltersButton" type="submit" class="btn btn-secondary">Reset Filters</button>
                 </form>
             </div>
         </div>
@@ -76,7 +94,7 @@
         <div class="row">
             @foreach (var car in Model)
             {
-                <div class="col-md-6 mb-4">
+                <div class="col-md-6 mb-4 animate__animated animate__slideInRight">
                     <div class="card h-100 shadow-sm">
                         <div class="card-img-top">
                             @if (car.ImagePaths != null && car.ImagePaths.Any())
@@ -89,7 +107,7 @@
                             }
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title d-flex align-items-center mb-3">
+                            <h5 class="card-title d-flex align-items-center mb-2">
                                 <span class="flex-grow-1">
                                     @car.Brand!.Name @car.Model
                                     @if (car.FuelType == FuelTypes.Electric)
@@ -99,10 +117,19 @@
                                 </span>
                                 <span class="badge bg-success" style="right: 4%;">@car.Price $/h</span>
                             </h5>
+                            @switch (car.Status)
+                            {
+                                case Status.Renting:
+                                    <span class="badge bg-primary fs-6 align-middle mb-2">Renting</span>
+                                    break;
+                                case Status.Free:
+                                    <span class="badge bg-success fs-6 align-middle mb-2">Ready to Rent</span>
+                                    break;
+                            }
                             <p class="card-text mb-1">
                                 <strong>Fuel Type:</strong> @car.FuelType<br>
                                 <strong>Color:</strong> @car.Color<br>
-                                <strong>Manufacturing Date:</strong> @car.ManufacturingDate.ToShortDateString()<br>
+                                <strong>Manufacturing Date:</strong> @Html.DisplayFor(modelItem => car.ManufacturingDate)<br>
                             </p>
                             <div class="d-grid gap-2">
                                 <a href="@Url.Action("Details", new { id = car.Id })" class="btn btn-primary mt-3">Details</a>
@@ -119,3 +146,68 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        function validateDateRange() {
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+            var applyFiltersButton = document.getElementById("applyFiltersButton");
+
+            if (startDate && endDate && startDate > endDate) {
+                document.getElementById("dateError").style.display = "block";
+                applyFiltersButton.disabled = true;
+            } else {
+                document.getElementById("dateError").style.display = "none";
+                applyFiltersButton.disabled = false;
+            }
+        }
+
+
+        function saveFilterValues() {
+            localStorage.setItem('brandId', document.getElementById('brandId').value);
+            localStorage.setItem('fuelType', document.getElementById('fuelType').value);
+            localStorage.setItem('color', document.getElementById('color').value);
+            localStorage.setItem('priceRange', document.getElementById('priceRange').value);
+            localStorage.setItem('startDate', document.getElementById('startDate').value);
+            localStorage.setItem('endDate', document.getElementById('endDate').value);
+            localStorage.setItem('status', document.getElementById('status').value);
+        }
+
+        function loadFilterValues() {
+            document.getElementById('brandId').value = localStorage.getItem('brandId');
+            document.getElementById('fuelType').value = localStorage.getItem('fuelType');
+            document.getElementById('color').value = localStorage.getItem('color');
+            document.getElementById('priceRange').value = localStorage.getItem('priceRange');
+            document.getElementById('startDate').value = localStorage.getItem('startDate');
+            document.getElementById('endDate').value = localStorage.getItem('endDate');
+            document.getElementById('status').value = localStorage.getItem('status');
+
+            saveFilterValues();
+        }
+
+        window.onload = function () {
+            loadFilterValues();
+        };
+
+        function resetFilters() {
+            document.getElementById('brandId').value = '';
+            document.getElementById('fuelType').value = '';
+            document.getElementById('color').value = '';
+            document.getElementById('priceRange').value = '';
+            document.getElementById('startDate').value = '';
+            document.getElementById('endDate').value = '';
+            document.getElementById('status').value = '';
+
+            saveFilterValues();
+        }
+
+        document.getElementById("applyFiltersButton").addEventListener("click", function () {
+            saveFilterValues();
+        });
+
+        document.getElementById("resetFiltersButton").addEventListener("click", function () {
+            resetFilters();
+        });
+    </script>
+}
