@@ -1,0 +1,61 @@
+﻿@model CarSharing.Models.RatingAndReview
+
+@{
+    ViewData["Title"] = "Delete Comment";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card animate__animated animate__slideInUp">
+                <div class="card-body animate__animated animate__fadeIn animation-delay-05s">
+                    <h1 class="card-title text-center display-4">Delete</h1>
+                    <hr />
+
+                    <dl class="row animate__animated animate__fadeIn animation-delay-075s">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.User)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.User!.Name)
+                            @if (Model.User!.IsAdmin)
+                            {
+                                <span class="badge bg-success">Admin</span>
+                            }
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Car)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.Car!.Brand!.Name) @Html.DisplayFor(model => model.Car!.Model)
+                        </dd>
+                        <dt class = "col-sm-2">
+                            @Html.DisplayNameFor(model => model.Comment)
+                        </dt>
+                        <dd class = "col-sm-10">
+                            @Html.DisplayFor(model => model.Comment)
+                        </dd>
+                        <dt class = "col-sm-2">
+                            @Html.DisplayNameFor(model => model.Rating)
+                        </dt>
+                        <dd class = "col-sm-10">
+                            <span class="badge @(Model.Rating == 1 ? "bg-danger" : Model.Rating >= 2 && Model.Rating < 4 ? "bg-warning" : Model.Rating >= 4 ? "bg-success" : "")">@Model.Rating</span>
+                        </dd>
+                        <dt class = "col-sm-2">
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </dt>
+                        <dd class = "col-sm-10">
+                            @Html.DisplayFor(model => model.CreatedAt)
+                        </dd>
+                    </dl>
+    
+                    <form asp-action="Delete" class="animate__animated animate__fadeIn animation-delay-075s">
+                        <input type="hidden" asp-for="Id" />
+                        <input type="submit" value="Delete" class="btn btn-danger" /> 
+                        <a asp-action="Details" asp-controller="Cars" asp-route-id="@Model.CarId" class="btn btn-secondary">Back to Car</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

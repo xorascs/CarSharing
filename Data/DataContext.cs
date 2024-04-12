@@ -13,6 +13,7 @@ namespace CarSharing.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Rents> Rents { get; set; }
+        public DbSet<RatingAndReview> RatingAndReviews { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -22,6 +23,7 @@ namespace CarSharing.Data
             modelBuilder.Entity<Car>().ToTable("Car")
                 .Property(c => c.Price)
                 .HasColumnType("decimal(18, 2)");
+            modelBuilder.Entity<RatingAndReview>().ToTable("RatingAndReview");
         }
     }
 }

@@ -120,7 +120,6 @@ namespace CarSharing.Controllers
             return View(await cars.ToListAsync());
         }
 
-        // GET: Cars/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -128,15 +127,24 @@ namespace CarSharing.Controllers
                 return NotFound();
             }
 
-            var car = await _context.Cars
+            var carViewModel = await _context.Cars
                 .Include(c => c.Brand)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (car == null)
+                .Select(c => new CarViewModel
+                {
+                    Car = c,
+                    RatingAndReview = _context.RatingAndReviews
+                        .Include(rr => rr.User)
+                        .Where(rr => rr.CarId == c.Id)
+                        .ToList()
+                })
+                .FirstOrDefaultAsync(m => m.Car!.Id == id);
+
+            if (carViewModel == null)
             {
                 return NotFound();
             }
 
-            return View(car);
+            return View(carViewModel);
         }
 
         // GET: Cars/Create
@@ -402,7 +410,7 @@ namespace CarSharing.Controllers
             }
 
             // Retrieve the user from the session
-            var userId = _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
+            var userId = GetCurrentUserId();
             var user = await _context.Users.FindAsync(userId);
 
             if (user == null)
@@ -439,6 +447,39 @@ namespace CarSharing.Controllers
             return RedirectToAction("Account", "Users"); // Redirect to the home page or a confirmation page
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddComment(int id, string commentText, int rating)
+        {
+            if (!IsLoggedIn())
+            {
+                return RedirectToAction("Login", "Users");
+            }
+
+            var car = await _context.Cars.FindAsync(id);
+            var userId = GetCurrentUserId();
+            var user = await _context.Users.FindAsync(userId);
+
+            if (car == null || user == null)
+            {
+                return BadRequest();
+            }
+
+            var addComment = new RatingAndReview
+            {
+                UserId = user.Id,
+                CarId = car.Id,
+                Rating = rating,
+                Comment = commentText,
+                CreatedAt = DateTime.Now,
+            };
+
+            _context.RatingAndReviews.Add(addComment);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Details), new { id = addComment.CarId });
+        }
+
         private bool CarExists(int id)
         {
             return _context.Cars.Any(e => e.Id == id);
@@ -450,6 +491,10 @@ namespace CarSharing.Controllers
         private bool IsLoggedIn()
         {
             return !_httpContextAccessor.HttpContext!.Session.GetString("Name").IsNullOrEmpty();
+        }
+        private int? GetCurrentUserId()
+        {
+            return _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
         }
     }
 }

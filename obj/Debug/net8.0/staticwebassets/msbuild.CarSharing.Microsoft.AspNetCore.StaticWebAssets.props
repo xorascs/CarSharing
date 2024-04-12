@@ -976,12 +976,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b541f73-1c4d-4648-bc32-5303445b91e7_20230426012532_2.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/0b541f73-1c4d-4648-bc32-5303445b91e7_20230426012532_2.jpg</RelativePath>
+      <RelativePath>uploads/1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -990,14 +990,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b541f73-1c4d-4648-bc32-5303445b91e7_20230426012532_2.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0e5352ce-e21c-4ed7-b442-211a6c3663f4_1.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/0e5352ce-e21c-4ed7-b442-211a6c3663f4_1.jpg</RelativePath>
+      <RelativePath>uploads/27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1006,14 +1006,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0e5352ce-e21c-4ed7-b442-211a6c3663f4_1.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6530c88f-4a6a-43c0-9dc5-9d003f27476f_2.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/6530c88f-4a6a-43c0-9dc5-9d003f27476f_2.jpg</RelativePath>
+      <RelativePath>uploads/6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1022,14 +1022,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6530c88f-4a6a-43c0-9dc5-9d003f27476f_2.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8fe999cf-d32d-418b-a6f2-42a916fd9717_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/8fe999cf-d32d-418b-a6f2-42a916fd9717_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg</RelativePath>
+      <RelativePath>uploads/7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1038,14 +1038,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8fe999cf-d32d-418b-a6f2-42a916fd9717_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ac698f90-f8d2-475b-b1a9-ef8a269b56e8_2024-mercedes-benz-e-class.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\876fbbd3-4a0c-4dc6-b972-562b1b8a7586_1.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/ac698f90-f8d2-475b-b1a9-ef8a269b56e8_2024-mercedes-benz-e-class.jpg</RelativePath>
+      <RelativePath>uploads/876fbbd3-4a0c-4dc6-b972-562b1b8a7586_1.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1054,14 +1054,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\ac698f90-f8d2-475b-b1a9-ef8a269b56e8_2024-mercedes-benz-e-class.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\876fbbd3-4a0c-4dc6-b972-562b1b8a7586_1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\baa87abf-3569-43f8-b087-42d3817c21d7_3.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/baa87abf-3569-43f8-b087-42d3817c21d7_3.jpg</RelativePath>
+      <RelativePath>uploads/8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1070,14 +1070,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\baa87abf-3569-43f8-b087-42d3817c21d7_3.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0ad0b17-edca-40a2-b82c-7c0e454a941b_3.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/d0ad0b17-edca-40a2-b82c-7c0e454a941b_3.jpg</RelativePath>
+      <RelativePath>uploads/a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1086,14 +1086,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\d0ad0b17-edca-40a2-b82c-7c0e454a941b_3.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e71321f4-77fc-48d0-a0bb-e99b3b47006b_1.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/e71321f4-77fc-48d0-a0bb-e99b3b47006b_1.jpg</RelativePath>
+      <RelativePath>uploads/bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1102,14 +1102,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e71321f4-77fc-48d0-a0bb-e99b3b47006b_1.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\f867fe92-6214-4a7f-b2ae-beee2468e384_2.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\bef4d6ca-ca8f-4c64-b382-f1ec2737b63d_11.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CarSharing</BasePath>
-      <RelativePath>uploads/f867fe92-6214-4a7f-b2ae-beee2468e384_2.jpg</RelativePath>
+      <RelativePath>uploads/bef4d6ca-ca8f-4c64-b382-f1ec2737b63d_11.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1118,7 +1118,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\f867fe92-6214-4a7f-b2ae-beee2468e384_2.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\bef4d6ca-ca8f-4c64-b382-f1ec2737b63d_11.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

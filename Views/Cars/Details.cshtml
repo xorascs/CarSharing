@@ -1,4 +1,4 @@
-﻿@model CarSharing.Models.Car
+﻿@model CarSharing.Models.CarViewModel
 
 @{
     ViewData["Title"] = "Details of Car";
@@ -12,7 +12,7 @@
     }
 </style>
 
-<p class="animate__animated animate__fadeIn"><a asp-action="Index" class="text-decoration-none text-secondary">Cars</a> / <a asp-action="Details" class="text-decoration-none text-secondary">@Model.Brand!.Name @Model.Model</a></p>
+<p class="animate__animated animate__fadeIn"><a asp-action="Index" class="text-decoration-none text-secondary">Cars</a> / <a asp-action="Details" class="text-decoration-none text-secondary">@Model.Car!.Brand!.Name @Model.Car!.Model</a></p>
 
 <div class="row animate__animated animate__slideInUp">
     <div class="col-sm-8">
@@ -22,7 +22,7 @@
             <!-- Indicators/dots -->
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                @for (int i = 1; i < Model.ImagePaths.Count; i++)
+                @for (int i = 1; i < Model.Car!.ImagePaths.Count; i++)
                 {
                     <button type="button" data-bs-target="#demo" data-bs-slide-to="@i"></button>
                 }
@@ -30,10 +30,10 @@
 
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
-                @if (Model.ImagePaths != null && Model.ImagePaths.Any())
+                @if (Model.Car!.ImagePaths != null && Model.Car!.ImagePaths.Any())
                 {
                     bool isFirstItem = true;
-                    foreach (var imagePath in Model.ImagePaths)
+                    foreach (var imagePath in Model.Car!.ImagePaths)
                     {
                         if (isFirstItem)
                         {
@@ -63,62 +63,119 @@
         <table class="table table-striped my-4">
             <tbody>
                 <tr>
-                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Brand)</th>
-                    <td class="col-sm-8">@Html.DisplayFor(model => model.Brand!.Name)</td>
+                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Car!.Brand)</th>
+                    <td class="col-sm-8">@Html.DisplayFor(model => model.Car!.Brand!.Name)</td>
                 </tr>
                 <tr>
-                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.FuelType)</th>
-                    <td class="col-sm-8">@Html.DisplayFor(model => model.FuelType)</td>
+                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Car!.FuelType)</th>
+                    <td class="col-sm-8">@Html.DisplayFor(model => model.Car!.FuelType)</td>
                 </tr>
                 <tr>
-                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Model)</th>
-                    <td class="col-sm-8">@Html.DisplayFor(model => model.Model)</td>
+                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Car!.Model)</th>
+                    <td class="col-sm-8">@Html.DisplayFor(model => model.Car!.Model)</td>
                 </tr>
                 <tr>
-                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Color)</th>
-                    <td class="col-sm-8">@Html.DisplayFor(model => model.Color)</td>
+                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Car!.Color)</th>
+                    <td class="col-sm-8">@Html.DisplayFor(model => model.Car!.Color)</td>
                 </tr>
                 <tr>
-                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.ManufacturingDate)</th>
-                    <td class="col-sm-8">@Html.DisplayFor(model => model.ManufacturingDate)</td>
+                    <th class="col-sm-4">@Html.DisplayNameFor(model => model.Car!.ManufacturingDate)</th>
+                    <td class="col-sm-8">@Html.DisplayFor(model => model.Car!.ManufacturingDate)</td>
                 </tr>
             </tbody>
         </table>
         <h6>Note: minimal rental time is 4 hours!</h6>
+        <!-- Comment Section -->
+        <div class="my-4">
+            <h3>Comments</h3>
+            <hr />
+            <!-- Add Comment Form -->
+            <div class="card my-4">
+                <div class="card-body">
+                    <h5 class="card-title">Add a Comment</h5>
+                    <form asp-controller="Cars" asp-action="AddComment" method="post">
+                        <input type="hidden" name="id" value="@Model.Car!.Id" />
+                        <div class="form-group">
+                            <label for="commentText">Your Comment</label>
+                            <textarea class="form-control" id="commentText" name="commentText" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Please enter your comment.
+                            </div>
+                        </div>
+                        <div class="form-group mt-3 my-3">
+                            <label for="rating" id="ratingValue" class="d-block text-center my-2">Rating: 3</label>
+                            <input type="range" class="form-control-range w-100" id="rating" name="rating" min="1" max="5" required>
+                            <div class="invalid-feedback">
+                                Please select a rating.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            @if (Model.RatingAndReview != null)
+            {
+                foreach (var review in Model.RatingAndReview)
+                {
+                    <div class="card my-2">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @review.User!.Name @review.User!.Surname
+                                <span class="badge float-end @(review.Rating == 1 ? "bg-danger" : review.Rating >= 2 && review.Rating < 4 ? "bg-warning" : review.Rating >= 4 ? "bg-success" : "")">@review.Rating</span>
+                            </h5>
+                            <p class="card-text">@review.Comment</p>
+                            <small class="text-muted">@Html.DisplayFor(modelItem => review.CreatedAt)</small>
+                            @if (ViewBag.isAdmin == 1 || ViewBag.Name == review.User!.Name)
+                            {
+                                <div class="float-end">
+                                    <a asp-controller="RatingAndReviews" asp-action="Edit" asp-route-id="@review.Id" class="btn btn-secondary">Edit</a>
+                                    <a asp-controller="RatingAndReviews" asp-action="Delete" asp-route-id="@review.Id" class="btn btn-danger">Delete</a>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+            }
+        </div>
     </div>
     <div class="col-sm-4">
-        <h1 class="display-4 d-inline-block my-3">@Model.Brand!.Name @Model.Model 
-            @if (Model.FuelType == FuelTypes.Electric)
+        <h1 class="display-4 d-inline-block my-3">
+            @Model.Car!.Brand!.Name @Model.Car!.Model
+            @if (Model.Car!.FuelType == FuelTypes.Electric)
             {
                 <span class="badge bg-success rounded-circle fs-4 align-middle">E</span>
             }
         </h1>
 
-        @switch (Model.Status)
+        @switch (Model.Car!.Status)
         {
             case Status.Renting:
-                <br /><span class="badge bg-primary fs-3 align-middle my-3">Renting</span>
+                <br />
+
+                <span class="badge bg-primary fs-3 align-middle my-3">Renting</span>
                 break;
             case Status.Free:
-                <br /><span class="badge bg-success fs-3 align-middle my-3">Ready to Rent</span>
+                <br />
+
+                <span class="badge bg-success fs-3 align-middle my-3">Ready to Rent</span>
                 break;
         }
-        <h4 class="text-secondary">@Model.FuelType, @Model.Color</h4>
-        <h4 class="text-secondary">Manufacturing Date: @Html.DisplayFor(model => model.ManufacturingDate)</h4>
-        <h4 class="badge bg-light text-dark fs-3 w-100 my-4">@Model.Price $/h</h4>
+        <h4 class="text-secondary">@Model.Car!.FuelType, @Model.Car!.Color</h4>
+        <h4 class="text-secondary">Manufacturing Date: @Html.DisplayFor(model => model.Car!.ManufacturingDate)</h4>
+        <h4 class="badge bg-light text-dark fs-3 w-100 my-4">@Model.Car!.Price $/h</h4>
         <div>
             <!-- Existing code omitted for brevity -->
             <div>
                 @if (ViewBag.isAdmin == 1 && ViewBag.Name != null)
                 {
-                    <a asp-action="Edit" asp-route-id="@Model!.Id" class="btn btn-primary w-100 my-2 animate__animated animate__bounceInRight animation-delay-05s">Edit</a>
+                    <a asp-action="Edit" asp-route-id="@Model.Car!.Id" class="btn btn-primary w-100 my-2 animate__animated animate__bounceInRight animation-delay-05s">Edit</a>
                 }
-                <button id="showPaymentForm" class="btn btn-success w-100 my-2 animate__animated animate__bounceInRight animation-delay-075s" @(Model.Status == Status.Renting ? "disabled" : "")>Rent a Car</button>
+                <button id="showPaymentForm" class="btn btn-success w-100 my-2 animate__animated animate__bounceInRight animation-delay-075s" @(Model.Car!.Status == Status.Renting ? "disabled" : "")>Rent a Car</button>
                 <div id="paymentForm" style="display: none;" class="animate__animated animate__bounceIn">
                     <div class="card shadow-sm">
                         <div class="card-body">
                             <form asp-controller="Cars" asp-action="Rent" method="post">
-                                <input type="hidden" name="id" value="@Model.Id" />
+                                <input type="hidden" name="id" value="@Model.Car!.Id" />
 
                                 <!-- Payment Information Fields -->
                                 <div class="form-group">
@@ -150,7 +207,7 @@
                                     <p for="rentalHours" id="rentalOutput" class="text-center m-0">14 hours</p>
                                 </div>
 
-                                <input type="submit" class="btn btn-success w-100 my-2" value="Confirm Rental" @(Model.Status == Status.Renting ? "disabled" : "")>
+                                <input type="submit" class="btn btn-success w-100 my-2" value="Confirm Rental" @(Model.Car!.Status == Status.Renting ? "disabled" : "")>
                             </form>
                         </div>
                     </div>
@@ -189,7 +246,7 @@
         var rentalOutput = document.getElementById('rentalOutput');
 
         // Add event listener to update output text when input value changes
-        rentalHoursInput.addEventListener('input', function() {
+        rentalHoursInput.addEventListener('input', function () {
             rentalOutput.textContent = rentalHoursInput.value + ' hours';
         });
 
@@ -200,6 +257,10 @@
             else {
                 document.getElementById('paymentForm').style.display = 'block';
             }
+        });
+
+        document.getElementById('rating').addEventListener('input', () => {
+            document.getElementById('ratingValue').textContent = "Rating: " + document.getElementById('rating').value;
         });
     </script>
 }

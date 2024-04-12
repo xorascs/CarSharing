@@ -14,8 +14,8 @@
 }
 
 <div class="row">
-    <div class="col-md-3 animate__animated animate__slideInLeft">
-        <div class="card">
+    <div class="col-md-3 animate__animated animate__fadeInLeft">
+        <div class="card animate__animated animate__fadeIn animation-delay-05s">
             <div class="card-body">
                 <form method="get" action="@Url.Action("Index")">
                     <h5 class="card-title">Filters</h5>
@@ -94,8 +94,8 @@
         <div class="row">
             @foreach (var car in Model)
             {
-                <div class="col-md-6 mb-4 animate__animated animate__slideInRight">
-                    <div class="card h-100 shadow-sm">
+                <div class="col-md-6 mb-4 animate__animated animate__fadeInRight">
+                    <div class="card h-100 shadow-sm animate__animated animate__fadeIn animation-delay-05s">
                         <div class="card-img-top">
                             @if (car.ImagePaths != null && car.ImagePaths.Any())
                             {
@@ -135,7 +135,6 @@
                                 <a href="@Url.Action("Details", new { id = car.Id })" class="btn btn-primary mt-3">Details</a>
                                 @if (ViewBag.isAdmin == 1 && ViewBag.Name != null)
                                 {
-                                    <a href="@Url.Action("Edit", new { id = car.Id })" class="btn btn-secondary">Edit</a>
                                     <a href="@Url.Action("Delete", new { id = car.Id })" class="btn btn-danger">Delete</a>
                                 }
                             </div>
