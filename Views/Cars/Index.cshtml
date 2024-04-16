@@ -154,6 +154,7 @@
             var applyFiltersButton = document.getElementById("applyFiltersButton");
 
             if (startDate && endDate && startDate > endDate) {
+                document.getElementById("dateError").textContent = "Start date cannot be greater than end date";
                 document.getElementById("dateError").style.display = "block";
                 applyFiltersButton.disabled = true;
             } else {
@@ -202,6 +203,18 @@
         }
 
         document.getElementById("applyFiltersButton").addEventListener("click", function () {
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+
+            if ((startDate != "" && endDate != "") || (startDate == "" && endDate == "")) {
+                document.getElementById("dateError").style.display = "none";
+                applyFiltersButton.disabled = false;
+            }
+            else {
+                document.getElementById("dateError").textContent = "You should set up start and end dates both";
+                document.getElementById("dateError").style.display = "block";
+                applyFiltersButton.disabled = true;
+            }
             saveFilterValues();
         });
 
