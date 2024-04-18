@@ -5,6 +5,7 @@ namespace CarSharing.Models
     public class User
     {
         public int Id { get; set; }
+        [Required, Display(Name = "Role")]
         public bool IsAdmin { get; set; }
         [Required]
         public required string Login {  get; set; }

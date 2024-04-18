@@ -16,10 +16,10 @@
                         <input type="hidden" asp-for="Id" />
                         @if (ViewBag.isAdmin == 1)
                         {
-                            <div class="form-group form-check">
-                                <input class="form-check-input" asp-for="IsAdmin" id="isAdmin" />
-                                <label class="form-check-label" for="isAdmin">Admin</label>
-                            </div>
+                            <select class="form-select" id="IsAdmin" asp-for="IsAdmin">
+                                <option value="true">Admin</option>
+                                <option value="false">User</option>
+                            </select>
                         }
                         <div class="form-group">
                             <label asp-for="Login" class="control-label">Username</label>

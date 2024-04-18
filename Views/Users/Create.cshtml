@@ -13,12 +13,12 @@
                     <hr />
                     <form asp-action="Create" class="animate__animated animate__fadeIn animation-delay-075s">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-group form-check">
-                            <input class="form-check-input" type="checkbox" id="IsAdmin" asp-for="IsAdmin">
-                            <label class="form-check-label" for="IsAdmin">
-                                Admin
-                            </label>
-                        </div>
+                        <select class="form-select" id="IsAdmin" asp-for="IsAdmin">
+                            <option value="" disabled selected>-- Select Role --</option>
+                            <option value="true">Admin</option>
+                            <option value="false">User</option>
+                        </select>
+                        <span asp-validation-for="IsAdmin" class="text-danger"></span>
 
                         <div class="form-group">
                             <label asp-for="Login" class="control-label">Login</label>
