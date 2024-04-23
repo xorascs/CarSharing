@@ -6,3 +6,5 @@ Before program launch:
    1) dotnet add package Microsoft.EntityFrameworkCore.SqlServer
    2) dotnet add package Microsoft.EntityFrameworkCore.Tools
    3) dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+!! fix code: delete all reviews after deleting car !!
