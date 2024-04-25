@@ -7,4 +7,4 @@ Before program launch:
    2) dotnet add package Microsoft.EntityFrameworkCore.Tools
    3) dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
 
-!! fix code: delete all reviews after deleting car and change button "Edit" in profile page to "Edit profile" !!
+!! fix code: delete all reviews after deleting car, change button "Edit" in profile page to "Edit profile" and change login page username to login !!
