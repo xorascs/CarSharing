@@ -2,6 +2,31 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 my-5">
+            <div class="text-start mt-5 animate__animated animate__fadeIn animation-delay-05s">
+                <h1 class="display-4">Welcome to our Carsharing Website</h1>
+            </div>
+            <p class="text-start my-4 animate__animated animate__fadeIn animation-delay-05s">
+                Our carsharing platform offers a flexible and convenient way to access vehicles when you need them.
+                Whether you're running errands, going on a weekend getaway, or just need a car for a few hours, we've got you covered.
+                With our extensive network of vehicles and user-friendly interface, getting behind the wheel has never been easier.
+            </p>
+            <div class="animate__animated animate__fadeInUp animation-delay-075s">
+                <a asp-action="Index" asp-controller="Cars" class="btn btn-primary mt-3 px-5">Cars</a>
+                @if (ViewBag.Name != null)
+                {
+                    <a asp-action="Account" asp-controller="Users" class="btn btn-dark mt-3 ms-2 px-5">My Page</a>
+                }
+                else
+                {
+                    <a asp-action="Login" asp-controller="Users" class="btn btn-dark mt-3 ms-2 px-5">Login</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-6 animate__animated animate__fadeInRight animation-delay-075s">
+            <img class="img-fluid rounded" style="object-fit: cover; height: 110%;" src="~/uploads/Login.jpg"/>
+        </div>
+    </div>
 </div>

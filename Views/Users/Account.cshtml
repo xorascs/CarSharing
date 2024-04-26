@@ -9,22 +9,73 @@
         <div class="col-md-6">
             <div class="card mb-4 animate__animated animate__slideInLeft">
                 <div class="card-body">
-                    <h2 class="card-title animate__animated animate__fadeIn animation-delay-05s">@Model.User!.Name @Model.User!.Surname</h2>
-                    <p class="card-text animate__animated animate__fadeIn animation-delay-075s">
-                        <strong>Login:</strong> @Model.User!.Login
-                        @if (@Model.User!.IsAdmin)
-                        {
-                            <span class="badge bg-success">Admin</span>
-                        }
-                        <br />
-                        <strong>Email:</strong> @Model.User!.Email
-                        <br />
-                        <strong>Address:</strong> @Model.User!.Address, @Model.User!.PostalCode
-                    </p>
+                    <div class="animate__animated animate__fadeIn animation-delay-05s">
+                        <div class="text-center">
+                            <h2 class="card-title">
+                                @Model.User!.Login
+                                @if (@Model.User!.IsAdmin)
+                                {
+                                    <span class="badge bg-success">Admin</span>
+                                }
+                            </h2>
+                            <small>@Model.User!.Name @Model.User!.Surname</small>
+                        </div>
+                        <hr />
+                        <p class="card-text animate__animated animate__fadeIn animation-delay-075s">
+                            <strong>Email:</strong> @Model.User!.Email
+                            <br />
+                            <strong>Address:</strong> @Model.User!.Address, @Model.User!.PostalCode
+                        </p>
+                        <hr />
+                        <p class="card-text animate__animated animate__fadeIn animation-delay-075s">
+                            <strong>Total Rents:</strong> @Model.totalRents <br />
+                            <strong>Total Price:</strong> @Model.totalDollarsForCars <span>$/h</span>
+                        </p>
+                        <hr />
+                    </div>
                     <div class="mt-3 animate__animated animate__fadeIn animation-delay-075s">
-                        <a asp-action="Edit" asp-route-id="@Model.User!.Id" class="btn btn-primary">Edit</a>
+                        <a asp-action="Edit" asp-route-id="@Model.User!.Id" class="btn btn-primary">Edit Profile</a>
                         <a asp-action="Delete" asp-route-id="@Model.User!.Id" class="btn btn-danger">Delete</a>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card mb-4 animate__animated animate__slideInRight">
+                <div class="card-body">
+                    <h2 class="card-title animate__animated animate__fadeIn animation-delay-05s">My Reviews</h2>
+                    <hr />
+                    @if (Model.Reviews != null && Model.Reviews.Any())
+                    {
+                        <div class="row overflow-hidden px-2">
+                            @foreach (var rew in Model.Reviews)
+                            {
+                            <div class="card my-2">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        @rew.User!.Name @rew.User!.Surname
+                                        <span class="badge float-end @(rew.Rating == 1 ? "bg-danger" : rew.Rating >= 2 && rew.Rating < 4 ? "bg-warning" : rew.Rating >= 4 ? "bg-success" : "")">@rew.Rating</span>
+                                    </h5>
+                                    <p class="card-text">@rew.Comment</p>
+                                    <small class="text-muted">@Html.DisplayFor(modelItem => rew.CreatedAt)</small>
+                                    @if (ViewBag.isAdmin == 1 || ViewBag.Name == rew.User!.Name)
+                                    {
+                                        <div class="float-end">
+                                            <a asp-controller="RatingAndReviews" asp-action="Edit" asp-route-id="@rew.Id" class="btn btn-secondary">Edit</a>
+                                            <a asp-controller="RatingAndReviews" asp-action="Delete" asp-route-id="@rew.Id" class="btn btn-danger">Delete</a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            }
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="alert alert-info animate__animated animate__fadeIn animation-delay-075s" role="alert">
+                            You have no reviews.
+                        </div>
+                    }
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ namespace CarSharing.Data
         public static void Initialize(DataContext context)
         {
             // Check if any data exists in the database
-            if (context.Brands.Any())
+            if (context.Brands.Any() || context.Users.Any())
             {
                 // Database has been seeded
                 return;
@@ -30,10 +30,21 @@ namespace CarSharing.Data
                 new Brand { Name = "BMW" },
                 new Brand { Name = "Mercedes-Benz" }
             };
-            foreach (var brand in brands)
+            var users = new User[]
             {
-                context.Add(brand);
-            }
+                new User {
+                    IsAdmin = true,
+                    Login = "xoras",
+                    Password = "123",
+                    Name = "oskars",
+                    Surname = "rascevskis",
+                    Email = "sonar@example.com",
+                    Address = "Saules iela 42",
+                    PostalCode = "LV-5433" 
+                },
+            };
+            context.AddRange(brands);
+            context.AddRange(users);
             context.SaveChanges();
         }
     }

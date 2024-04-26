@@ -122,6 +122,12 @@ namespace CarSharing.Controllers
                 u => u.Login == user.Login && 
                 u.Password == user.Password);
 
+            if (exitingUser == null)
+            {
+                ModelState.AddModelError("Login", "Incorrect login or password.");
+                return View(user);
+            }
+
             if (exitingUser != null && _httpContextAccessor.HttpContext != null)
             {
                 _httpContextAccessor.HttpContext.Session.SetInt32("Id", exitingUser.Id);
@@ -192,6 +198,10 @@ namespace CarSharing.Controllers
                     .Include(r => r.Car!.Brand)  // Include the Car navigation property
                     .Where(r => r.User!.Name == name)
                     .ToListAsync();
+                var reviews = await _context.RatingAndReviews
+                    .Include(r => r.Car!.Brand!)
+                    .Include(r => r.User!)
+                    .ToListAsync();
 
                 if (user != null && rents != null)
                 {
@@ -199,6 +209,9 @@ namespace CarSharing.Controllers
                     {
                         User = user,
                         Rents = rents,
+                        Reviews = reviews,
+                        totalRents = rents.Count(),
+                        totalDollarsForCars = rents.Sum(r => r.Car!.Price)
                     };
 
                     return View(viewModel);

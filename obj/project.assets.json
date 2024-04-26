@@ -8581,11 +8581,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Oskars_Projects\\CarSharing\\CarSharing.csproj",
+      "projectUniqueName": "C:\\Oskars_Projects\\CarSh\\CarSharing.csproj",
       "projectName": "CarSharing",
-      "projectPath": "C:\\Oskars_Projects\\CarSharing\\CarSharing.csproj",
+      "projectPath": "C:\\Oskars_Projects\\CarSh\\CarSharing.csproj",
       "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-      "outputPath": "C:\\Oskars_Projects\\CarSharing\\obj\\",
+      "outputPath": "C:\\Oskars_Projects\\CarSh\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CarSharing.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="shortcut icon" href="/ico.ico" />
 
     <style>
         /* Custom Styles */
@@ -58,13 +59,36 @@
         .animation-delay-15s {
             animation-delay: 1.5s;
         }
+
+        .separator {
+            display: flex;
+            flex-basis: 100%;
+            align-items: center;
+            color: rgba(0, 0, 0, 0.35);
+            margin: 8px 0px;
+            margin-bottom: 16px;
+            margin-top: 16px;
+        }
+        .separator:before,
+        .separator:after {
+            content: "";
+            flex-grow: 1;
+            background: rgba(0, 0, 0, 0.35);
+            height: 1px;
+            font-size: 0px;
+            line-height: 0px;
+            margin: 0px 8px;
+        }
     </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow py-3 fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CarSharing</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/ico.ico" width="30" height="30" class="d-inline-block align-top" alt="">
+                    CarSharing
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -114,7 +138,7 @@
             </div>
         </nav>
     </header>
-    <div class="container" style="padding-top: 100px; margin-bottom: 100px;">
+    <div class="container" style="padding-top: 130px; margin-bottom: 100px;">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

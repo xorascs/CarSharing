@@ -379,6 +379,11 @@ namespace CarSharing.Controllers
                     }
                 }
 
+                var reviews = await _context.RatingAndReviews
+                    .Where(r => r.CarId == id)
+                    .ToListAsync();
+
+                _context.RatingAndReviews.RemoveRange(reviews);
                 _context.Cars.Remove(car);
                 await _context.SaveChangesAsync();
             }
