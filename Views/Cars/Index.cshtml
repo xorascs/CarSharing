@@ -22,7 +22,7 @@
                     <div class="mb-3">
                         <label for="brandId" class="form-label">Brand</label>
                         <select name="brandId" id="brandId" class="form-select">
-                            <option value="">All Brands</option>
+                            <option value="" selected>All Brands</option>
                             @foreach (var brand in ViewBag.Brands)
                             {
                                 <option value="@brand.Id">@brand.Name</option>
@@ -181,11 +181,14 @@
             document.getElementById('startDate').value = localStorage.getItem('startDate');
             document.getElementById('endDate').value = localStorage.getItem('endDate');
             document.getElementById('status').value = localStorage.getItem('status');
-
             saveFilterValues();
         }
 
         window.onload = function () {
+            if (localStorage.length == 0) {
+                saveFilterValues();
+                loadFilterValues();
+            }
             loadFilterValues();
         };
 

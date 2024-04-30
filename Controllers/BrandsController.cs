@@ -54,11 +54,7 @@ namespace CarSharing.Controllers
                     else
                     {
                         // User doesn't exist in the database, clear session and ViewBag
-                        _httpContextAccessor.HttpContext.Session.Remove("Id");
-                        _httpContextAccessor.HttpContext.Session.Remove("Login");
-                        _httpContextAccessor.HttpContext.Session.Remove("Name");
-                        _httpContextAccessor.HttpContext.Session.Remove("Password");
-                        _httpContextAccessor.HttpContext.Session.Remove("isAdmin");
+                        _httpContextAccessor.HttpContext.Session.Clear();
                         ViewBag.Name = null;
                         ViewBag.isAdmin = null;
                     }
