@@ -7,4 +7,3 @@ Before program launch:
    2) dotnet add package Microsoft.EntityFrameworkCore.Tools
    3) dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
    4) dotnet ef database update
-   5) npm i
