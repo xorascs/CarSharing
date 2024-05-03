@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Oskars_Projects\\1\\CarSharing.csproj": {}
+    "C:\\Users\\owner\\Documents\\1\\CarSharing.csproj": {}
   },
   "projects": {
-    "C:\\Oskars_Projects\\1\\CarSharing.csproj": {
+    "C:\\Users\\owner\\Documents\\1\\CarSharing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Oskars_Projects\\1\\CarSharing.csproj",
+        "projectUniqueName": "C:\\Users\\owner\\Documents\\1\\CarSharing.csproj",
         "projectName": "CarSharing",
-        "projectPath": "C:\\Oskars_Projects\\1\\CarSharing.csproj",
+        "projectPath": "C:\\Users\\owner\\Documents\\1\\CarSharing.csproj",
         "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
-        "outputPath": "C:\\Oskars_Projects\\1\\obj\\",
+        "outputPath": "C:\\Users\\owner\\Documents\\1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",

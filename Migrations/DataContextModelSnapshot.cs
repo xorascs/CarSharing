@@ -81,6 +81,49 @@ namespace CarSharing.Migrations
                     b.ToTable("Car", (string)null);
                 });
 
+            modelBuilder.Entity("CarSharing.Models.Chat", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Chat", (string)null);
+                });
+
+            modelBuilder.Entity("CarSharing.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("ChatId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Message", (string)null);
+                });
+
             modelBuilder.Entity("CarSharing.Models.RatingAndReview", b =>
                 {
                     b.Property<int>("Id")
@@ -202,6 +245,21 @@ namespace CarSharing.Migrations
                     b.ToTable("User", (string)null);
                 });
 
+            modelBuilder.Entity("ChatUser", b =>
+                {
+                    b.Property<int>("ChatsListId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersListId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ChatsListId", "UsersListId");
+
+                    b.HasIndex("UsersListId");
+
+                    b.ToTable("ChatUser");
+                });
+
             modelBuilder.Entity("CarSharing.Models.Car", b =>
                 {
                     b.HasOne("CarSharing.Models.Brand", "Brand")
@@ -211,6 +269,25 @@ namespace CarSharing.Migrations
                         .IsRequired();
 
                     b.Navigation("Brand");
+                });
+
+            modelBuilder.Entity("CarSharing.Models.Message", b =>
+                {
+                    b.HasOne("CarSharing.Models.Chat", "Chat")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarSharing.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Chat");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("CarSharing.Models.RatingAndReview", b =>
@@ -251,9 +328,29 @@ namespace CarSharing.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("ChatUser", b =>
+                {
+                    b.HasOne("CarSharing.Models.Chat", null)
+                        .WithMany()
+                        .HasForeignKey("ChatsListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarSharing.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("CarSharing.Models.Brand", b =>
                 {
                     b.Navigation("Cars");
+                });
+
+            modelBuilder.Entity("CarSharing.Models.Chat", b =>
+                {
+                    b.Navigation("Messages");
                 });
 #pragma warning restore 612, 618
         }

@@ -9,6 +9,7 @@ using CarSharing.Data;
 using CarSharing.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
+using CarSharing.Controllers.Utilities;
 
 namespace CarSharing.Controllers
 {
@@ -16,11 +17,13 @@ namespace CarSharing.Controllers
     {
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly Helper _helper;
 
-        public CarsController(DataContext context, IHttpContextAccessor httpContextAccessor)
+        public CarsController(DataContext context, IHttpContextAccessor httpContextAccessor, Helper helper)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _helper = helper;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -50,6 +53,7 @@ namespace CarSharing.Controllers
                     if (existingUser != null)
                     {
                         ViewBag.Name = sessionName;
+                        ViewBag.Id = sessionId;
                         ViewBag.isAdmin = sessionIsAdmin;
                     }
                     else
@@ -57,6 +61,7 @@ namespace CarSharing.Controllers
                         // User doesn't exist in the database, clear session and ViewBag
                         _httpContextAccessor.HttpContext.Session.Clear();
                         ViewBag.Name = null;
+                        ViewBag.Id = null;
                         ViewBag.isAdmin = null;
                     }
                 }
@@ -146,7 +151,7 @@ namespace CarSharing.Controllers
         // GET: Cars/Create
         public IActionResult Create()
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Cars");
             }
@@ -211,7 +216,7 @@ namespace CarSharing.Controllers
         // GET: Cars/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Cars");
             }
@@ -333,7 +338,7 @@ namespace CarSharing.Controllers
         // GET: Cars/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Cars");
             }
@@ -404,14 +409,14 @@ namespace CarSharing.Controllers
             }
 
             // Check if the user is logged in
-            if (!IsLoggedIn())
+            if (!_helper.IsLoggedIn())
             {
                 // Redirect to the login page or display a message
                 return RedirectToAction("Login", "Users"); // Redirect to the login page
             }
 
             // Retrieve the user from the session
-            var userId = GetCurrentUserId();
+            var userId = _helper.GetCurrentUserId();
             var user = await _context.Users.FindAsync(userId);
 
             if (user == null)
@@ -445,20 +450,20 @@ namespace CarSharing.Controllers
             await _context.SaveChangesAsync();
 
             // Redirect to a page showing successful rental or display a message
-            return RedirectToAction("Account", "Users"); // Redirect to the home page or a confirmation page
+            return RedirectToAction("Account", "Users", new {id = user.Id}); // Redirect to the home page or a confirmation page
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddComment(int id, string commentText, int rating)
         {
-            if (!IsLoggedIn())
+            if (!_helper.IsLoggedIn())
             {
                 return RedirectToAction("Login", "Users");
             }
 
             var car = await _context.Cars.FindAsync(id);
-            var userId = GetCurrentUserId();
+            var userId = _helper.GetCurrentUserId();
             var user = await _context.Users.FindAsync(userId);
 
             if (car == null || user == null)
@@ -484,18 +489,6 @@ namespace CarSharing.Controllers
         private bool CarExists(int id)
         {
             return _context.Cars.Any(e => e.Id == id);
-        }
-        private bool IsAdminJoined()
-        {
-            return ViewBag.Name != null && ViewBag.isAdmin == 1;
-        }
-        private bool IsLoggedIn()
-        {
-            return !_httpContextAccessor.HttpContext!.Session.GetString("Name").IsNullOrEmpty();
-        }
-        private int? GetCurrentUserId()
-        {
-            return _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
         }
     }
 }

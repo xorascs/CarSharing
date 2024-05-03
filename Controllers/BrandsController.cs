@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CarSharing.Data;
 using CarSharing.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
+using CarSharing.Controllers.Utilities;
 
 namespace CarSharing.Controllers
 {
@@ -15,11 +16,13 @@ namespace CarSharing.Controllers
     {
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly Helper _helper;
 
-        public BrandsController(DataContext context, IHttpContextAccessor httpContextAccessor)
+        public BrandsController(DataContext context, IHttpContextAccessor httpContextAccessor, Helper helper)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _helper = helper;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -49,6 +52,7 @@ namespace CarSharing.Controllers
                     if (existingUser != null)
                     {
                         ViewBag.Name = sessionName;
+                        ViewBag.Id = sessionId;
                         ViewBag.isAdmin = sessionIsAdmin;
                     }
                     else
@@ -56,6 +60,7 @@ namespace CarSharing.Controllers
                         // User doesn't exist in the database, clear session and ViewBag
                         _httpContextAccessor.HttpContext.Session.Clear();
                         ViewBag.Name = null;
+                        ViewBag.Id = null;
                         ViewBag.isAdmin = null;
                     }
                 }
@@ -67,7 +72,7 @@ namespace CarSharing.Controllers
         // GET: Brands
         public async Task<IActionResult> Index()
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -87,7 +92,7 @@ namespace CarSharing.Controllers
         // GET: Brands/Create
         public IActionResult Create()
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -113,7 +118,7 @@ namespace CarSharing.Controllers
         // GET: Brands/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -168,7 +173,7 @@ namespace CarSharing.Controllers
         // GET: Brands/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -210,11 +215,6 @@ namespace CarSharing.Controllers
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-        }
-
-        private bool IsAdminJoined()
-        {
-            return _httpContextAccessor.HttpContext!.Session.GetInt32("isAdmin") == 1;
         }
         private bool BrandExists(int id)
         {

@@ -1,0 +1,258 @@
+﻿@model CarSharing.Models.ShowChatViewModel
+
+@{
+    ViewData["Title"] = "Chat";
+}
+
+<style>
+    .chat-card {
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+    .chat-card .card-body {
+        max-height: calc(100vh - 550px);
+        overflow-y: auto;
+    }
+    /* Hide the default scrollbar */
+    .card-body::-webkit-scrollbar {
+        width: 8px; /* width of the scrollbar */
+    }
+    /* Track styles */
+    .card-body::-webkit-scrollbar-track {
+        background: #f1f1f1; /* color of the track */
+    }
+    /* Handle styles */
+    .card-body::-webkit-scrollbar-thumb {
+        background: #888; /* color of the scrollbar handle */
+        border-radius: 4px; /* roundness of the scrollbar handle */
+    }
+    /* Handle on hover */
+    .card-body::-webkit-scrollbar-thumb:hover {
+        background: #555; /* color of the scrollbar handle on hover */
+    }
+
+    .message {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+    }
+    .message .user {
+        font-weight: bold;
+    }
+    .message .time {
+        color: #888;
+        font-size: 12px;
+    }
+    .message-actions {
+        margin-top: 5px;
+    }
+    .message-actions .btn {
+        margin-right: 5px;
+    }
+
+    textarea {
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        height: 55px;
+        min-height: 55px;
+        max-height: 200px;
+        overflow-y: hidden;
+    }
+    form button[type=submit] {
+        border-radius: 20px;
+    }
+    h4 svg {
+        width: 22px !important;
+        height: 22px !important;
+    }
+</style>
+
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card chat-card mb-4 animate__animated animate__fadeInRight">
+                <div class="card-header animate__animated animate__fadeIn animation-delay-05s">
+                    <div class="d-inline-flex justify-content-between w-100">
+                        <h4 class="m-3">
+                            Chat Messages
+                            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addUserChatModal">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+                                    <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                                    <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                                </svg>
+                            </button>
+                            @if (Model.UsersInChat.Count + 1 > 2)
+                            {
+                                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#deleteUserChatModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+                                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M11 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1m0-7a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                                        <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                                    </svg>
+                                </button>
+                            }
+                        </h4>
+                        <a asp-action="ChatList" asp-route-id="@ViewBag.Id" class="btn btn-light pt-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class=" m-1 p-1 bg-light">
+                        @if (Model.UsersInChat.Count == 1)
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                            </svg>
+                        }
+                        else
+                        {
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                                <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5" />
+                            </svg>
+                        }
+                        @foreach (var user in Model.UsersInChat)
+                        {
+                            <span class="badge bg-primary me-1 p-2">@user.Name</span>
+                        }
+                    </div>
+                </div>
+                <div class="card-body animate__animated animate__fadeIn animation-delay-075s">
+                    @if (Model.Chat!.Messages.Count == 0)
+                    {
+                        <div class="text-secondary text-center mt-3">This chat has no messages</div>
+                    }
+                    else
+                    {
+                        @foreach (var message in Model.Chat!.Messages)
+                        {
+                            <div class="row message">
+                                <div class="col-md-11">
+                                    <div class="user">@message.User!.Name</div>
+                                    <div class="text">@message.Text</div>
+                                    <div class="time">@message.CreateTime.ToString("MMMM dd, yyyy HH:mm")</div>
+                                </div>
+                                <div class="col-md-1">
+                                    @if (ViewBag.Id == message.UserId)
+                                    {
+                                        <div class="message-actions">
+                                            <a asp-action="DeleteMessage" asp-route-messageId="@message.Id" asp-route-chatId="@Model.Chat.Id" asp-route-userId="@message.UserId" class="btn btn-danger">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z" />
+                                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z" />
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="mt-2 animate__animated animate__fadeIn animation-delay-075s">
+                    <form asp-action="CreateMessage" method="post" class="d-flex justify-content-center my-4">
+                        <input type="hidden" name="chatId" value="@Model.Chat.Id" />
+                        <textarea class="rounded-pill w-75 p-3 m-2" name="messageText" placeholder="Type your message here..." required></textarea>
+                        <button class="btn btn-primary p-3 m-2" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-up" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M3.5 10a.5.5 0 0 1-.5-.5v-8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 0 0 1h2A1.5 1.5 0 0 0 14 9.5v-8A1.5 1.5 0 0 0 12.5 0h-9A1.5 1.5 0 0 0 2 1.5v8A1.5 1.5 0 0 0 3.5 11h2a.5.5 0 0 0 0-1z" />
+                                <path fill-rule="evenodd" d="M7.646 4.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V14.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708z" />
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addUserChatModal" tabindex="-1" aria-labelledby="addUserChatModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addUserModalLabel">Add User to Chat</h5>
+            </div>
+            <div class="modal-body">
+                <form id="addUserForm" asp-action="AddUserToChat" method="post">
+                    <input type="hidden" name="chatId" value="@Model.Chat.Id" />
+                    <div class="form-group">
+                        <label for="userId">User</label>
+                        <select class="form-control" id="userId" name="userId" required>
+                            <option value="" selected disabled>-- Choose User --</option>
+                            @foreach (var user in Model.UsersNotInChat)
+                            {
+                                <option value="@user.Id">@user.Name</option>
+                            }
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" form="addUserForm" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+                        <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7m.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0m-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                        <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                    </svg>
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (Model.UsersInChat.Count + 1 > 2)
+{
+    <div class="modal fade" id="deleteUserChatModal" tabindex="-1" aria-labelledby="deleteUserChatModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">Delete User from Chat</h5>
+                </div>
+                <div class="modal-body">
+                    <form id="deleteUserForm" asp-action="DeleteUserFromChat" method="post">
+                        <input type="hidden" name="chatId" value="@Model.Chat.Id" />
+                        <div class="form-group">
+                            <label for="userId">User</label>
+                            <select class="form-control" id="userId" name="userId" required>
+                                <option value="" selected disabled>-- Choose User --</option>
+                                @foreach (var user in Model.UsersInChat)
+                                {
+                                    <option value="@user.Id">@user.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" form="deleteUserForm" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+                            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7M11 12h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1m0-7a3 3 0 1 1-6 0 3 3 0 0 1 6 0M8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4" />
+                            <path d="M8.256 14a4.5 4.5 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10q.39 0 .74.025c.226-.341.496-.65.804-.918Q8.844 9.002 8 9c-5 0-6 3-6 4s1 1 1 1z" />
+                        </svg>
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z" />
+                            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    <script>
+        document.getElementsByName('messageText')[0].addEventListener('keydown', function (event) {
+            if (event.keyCode === 13 && !event.shiftKey) { // Check if Enter key is pressed and Shift key is not held down
+                event.preventDefault(); // Prevent the default behavior of the Enter key (inserting a newline)
+                document.querySelector("div.mt-2.animate__animated.animate__fadeIn.animation-delay-075s > form > button").click(); // Submit the form
+            }
+        });
+    </script>
+}

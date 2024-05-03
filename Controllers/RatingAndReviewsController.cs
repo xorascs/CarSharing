@@ -9,6 +9,7 @@ using CarSharing.Data;
 using CarSharing.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
+using CarSharing.Controllers.Utilities;
 
 namespace CarSharing.Controllers
 {
@@ -16,11 +17,13 @@ namespace CarSharing.Controllers
     {
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly Helper _helper;
 
-        public RatingAndReviewsController(DataContext context, IHttpContextAccessor httpContextAccessor)
+        public RatingAndReviewsController(DataContext context, IHttpContextAccessor httpContextAccessor, Helper helper)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _helper = helper;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -50,6 +53,7 @@ namespace CarSharing.Controllers
                     if (existingUser != null)
                     {
                         ViewBag.Name = sessionName;
+                        ViewBag.Id = sessionId;
                         ViewBag.isAdmin = sessionIsAdmin;
                     }
                     else
@@ -57,6 +61,7 @@ namespace CarSharing.Controllers
                         // User doesn't exist in the database, clear session and ViewBag
                         _httpContextAccessor.HttpContext.Session.Clear();
                         ViewBag.Name = null;
+                        ViewBag.Id = null;
                         ViewBag.isAdmin = null;
                     }
                 }
@@ -83,7 +88,7 @@ namespace CarSharing.Controllers
                 return NotFound();
             }
 
-            if (!IsAdminJoined() && ratingAndReview.UserId != GetCurrentUserId())
+            if (!_helper.IsAdminJoined() && ratingAndReview.UserId != _helper.GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Cars");
             }
@@ -112,7 +117,7 @@ namespace CarSharing.Controllers
                 return NotFound();
             }
 
-            if (!IsAdminJoined() && existingRatingAndReview.UserId != GetCurrentUserId())
+            if (!_helper.IsAdminJoined() && existingRatingAndReview.UserId != _helper.GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Cars");
             }
@@ -166,7 +171,7 @@ namespace CarSharing.Controllers
                 return NotFound();
             }
 
-            if (!IsAdminJoined() && ratingAndReview!.UserId != GetCurrentUserId())
+            if (!_helper.IsAdminJoined() && ratingAndReview!.UserId != _helper.GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Cars");
             }
@@ -193,13 +198,6 @@ namespace CarSharing.Controllers
         {
             return _context.RatingAndReviews.Any(e => e.Id == id);
         }
-        private bool IsAdminJoined()
-        {
-            return ViewBag.Name != null && ViewBag.isAdmin == 1;
-        }
-        private int? GetCurrentUserId()
-        {
-            return _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
-        }
+
     }
 }

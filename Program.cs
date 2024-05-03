@@ -6,6 +6,7 @@ using System;
 using Microsoft.Extensions.Options;
 using System.Diagnostics;
 using CarSharing.Data;
+using CarSharing.Controllers.Utilities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,8 @@ builder.Services.AddSession(options =>
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
+
+builder.Services.AddScoped<Helper>();
 
 var app = builder.Build();
 
@@ -72,7 +75,7 @@ void CreateDbIfNotExists(WebApplication app)
 
         // Database exists, migrate if necessary
         context.Database.Migrate();
-        DbInitializer.Initialize(context);
+        Database.Initialize(context);
     }
     catch (Exception ex)
     {

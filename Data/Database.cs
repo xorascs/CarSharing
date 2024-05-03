@@ -3,7 +3,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace CarSharing.Data
 {
-    public class DbInitializer
+    public class Database
     {
         public static void Initialize(DataContext context)
         {
@@ -15,24 +15,18 @@ namespace CarSharing.Data
             }
 
             // Fill the database with data
-            SeedData(context);
-        }
-
-        public static void SeedData(DataContext context)
-        {
-            // Add brands
             var brands = new Brand[]
-            {
-                new Brand { Name = "Toyota", },
-                new Brand { Name = "Honda" },
-                new Brand { Name = "Ford" },
-                new Brand { Name = "Chevrolet" },
-                new Brand { Name = "BMW" },
-                new Brand { Name = "Mercedes-Benz" }
-            };
+             {
+                new() { Name = "Toyota", },
+                new() { Name = "Honda" },
+                new() { Name = "Ford" },
+                new() { Name = "Chevrolet" },
+                new() { Name = "BMW" },
+                new() { Name = "Mercedes-Benz" }
+             };
             var users = new User[]
             {
-                new User {
+                new() {
                     IsAdmin = true,
                     Login = "xoras",
                     Password = "123",
@@ -40,7 +34,7 @@ namespace CarSharing.Data
                     Surname = "rascevskis",
                     Email = "sonar@example.com",
                     Address = "Saules iela 42",
-                    PostalCode = "LV-5433" 
+                    PostalCode = "LV-5433"
                 },
             };
             context.AddRange(brands);

@@ -23,6 +23,7 @@ namespace CarSharing.Controllers
             if (_httpContextAccessor.HttpContext != null)
             {
                 ViewBag.Name = _httpContextAccessor.HttpContext.Session.GetString("Name");
+                ViewBag.Id = _httpContextAccessor.HttpContext.Session.GetInt32("Id");
                 ViewBag.isAdmin = _httpContextAccessor.HttpContext.Session.GetInt32("isAdmin");
             }
 

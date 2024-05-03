@@ -1136,6 +1136,38 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b53a4a1-dfc6-497f-affc-7783458125cd_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CarSharing</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CarSharing</BasePath>
+      <RelativePath>uploads/0b53a4a1-dfc6-497f-affc-7783458125cd_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\0b53a4a1-dfc6-497f-affc-7783458125cd_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b0fdee0-2230-49f6-95cf-214ed4fc6664_2024-mercedes-benz-e-class.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CarSharing</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CarSharing</BasePath>
+      <RelativePath>uploads/1b0fdee0-2230-49f6-95cf-214ed4fc6664_2024-mercedes-benz-e-class.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b0fdee0-2230-49f6-95cf-214ed4fc6664_2024-mercedes-benz-e-class.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
@@ -1168,6 +1200,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CarSharing</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CarSharing</BasePath>
+      <RelativePath>uploads/368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
@@ -1183,6 +1231,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7ae862e2-d99c-41bc-a92b-b446b25b19ae_20230426012532_2.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CarSharing</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CarSharing</BasePath>
+      <RelativePath>uploads/7ae862e2-d99c-41bc-a92b-b446b25b19ae_20230426012532_2.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7ae862e2-d99c-41bc-a92b-b446b25b19ae_20230426012532_2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))">
       <SourceType>Package</SourceType>
@@ -1232,6 +1296,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9af5e686-2ed5-4e09-a435-7062027d71f4_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CarSharing</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CarSharing</BasePath>
+      <RelativePath>uploads/9af5e686-2ed5-4e09-a435-7062027d71f4_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\9af5e686-2ed5-4e09-a435-7062027d71f4_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>
@@ -1247,6 +1327,22 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a4bcd130-c742-4d95-9d84-2c0c867ff119_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CarSharing</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CarSharing</BasePath>
+      <RelativePath>uploads/a4bcd130-c742-4d95-9d84-2c0c867ff119_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a4bcd130-c742-4d95-9d84-2c0c867ff119_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg))">
       <SourceType>Package</SourceType>

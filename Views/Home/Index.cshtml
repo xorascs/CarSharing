@@ -17,7 +17,7 @@
                 <a asp-action="Index" asp-controller="Cars" class="btn btn-primary mt-3 px-5">Cars</a>
                 @if (ViewBag.Name != null)
                 {
-                    <a asp-action="Account" asp-controller="Users" class="btn btn-dark mt-3 ms-2 px-5">My Page</a>
+                    <a asp-action="Account" asp-route-id="@ViewBag.Id" asp-controller="Users" class="btn btn-dark mt-3 ms-2 px-5">My Page</a>
                 }
                 else
                 {

@@ -9,6 +9,7 @@ using CarSharing.Data;
 using CarSharing.Models;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
+using CarSharing.Controllers.Utilities;
 
 namespace CarSharing.Controllers
 {
@@ -16,11 +17,13 @@ namespace CarSharing.Controllers
     {
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly Helper _helper;
 
-        public RentsController(DataContext context, IHttpContextAccessor httpContextAccessor)
+        public RentsController(DataContext context, IHttpContextAccessor httpContextAccessor, Helper helper)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _helper = helper;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -50,6 +53,7 @@ namespace CarSharing.Controllers
                     if (existingUser != null)
                     {
                         ViewBag.Name = sessionName;
+                        ViewBag.Id = sessionId;
                         ViewBag.isAdmin = sessionIsAdmin;
                     }
                     else
@@ -57,6 +61,7 @@ namespace CarSharing.Controllers
                         // User doesn't exist in the database, clear session and ViewBag
                         _httpContextAccessor.HttpContext.Session.Clear();
                         ViewBag.Name = null;
+                        ViewBag.Id = null;
                         ViewBag.isAdmin = null;
                     }
                 }
@@ -68,7 +73,7 @@ namespace CarSharing.Controllers
         // GET: Rents
         public async Task<IActionResult> Index()
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -78,7 +83,7 @@ namespace CarSharing.Controllers
         // GET: Rents/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -179,7 +184,7 @@ namespace CarSharing.Controllers
                 .Include(r => r.Car!.Brand)
                 .Include(r => r.User)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (!IsAdminJoined() && rents?.UserId != GetCurrentUserId())
+            if (!_helper.IsAdminJoined() && rents?.UserId != _helper.GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -211,9 +216,9 @@ namespace CarSharing.Controllers
             }
 
             await _context.SaveChangesAsync();
-            if (rents!.UserId == GetCurrentUserId() && !IsAdminJoined())
+            if (rents!.UserId == _helper.GetCurrentUserId() && !_helper.IsAdminJoined())
             {
-                return RedirectToAction("Account", "Users");
+                return RedirectToAction("Account", "Users", new { id = rents.UserId });
             }
             return RedirectToAction(nameof(Index));
         }
@@ -221,14 +226,6 @@ namespace CarSharing.Controllers
         private bool RentsExists(int id)
         {
             return _context.Rents.Any(e => e.Id == id);
-        }
-        private bool IsAdminJoined()
-        {
-            return ViewBag.Name != null && ViewBag.isAdmin == 1;
-        }
-        private int? GetCurrentUserId()
-        {
-            return _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
         }
     }
 }

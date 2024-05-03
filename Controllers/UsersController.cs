@@ -10,6 +10,7 @@ using CarSharing.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.IdentityModel.Tokens;
+using CarSharing.Controllers.Utilities;
 
 namespace CarSharing.Controllers
 {
@@ -17,11 +18,13 @@ namespace CarSharing.Controllers
     {
         private readonly DataContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly Helper _helper;
 
-        public UsersController(DataContext context, IHttpContextAccessor httpContextAccessor)
+        public UsersController(DataContext context, IHttpContextAccessor httpContextAccessor, Helper helper)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _helper = helper;
         }
 
         public override void OnActionExecuting(ActionExecutingContext context)
@@ -51,6 +54,7 @@ namespace CarSharing.Controllers
                     if (existingUser != null)
                     {
                         ViewBag.Name = sessionName;
+                        ViewBag.Id = sessionId;
                         ViewBag.isAdmin = sessionIsAdmin;
                     }
                     else
@@ -58,6 +62,7 @@ namespace CarSharing.Controllers
                         // User doesn't exist in the database, clear session and ViewBag
                         _httpContextAccessor.HttpContext.Session.Clear();
                         ViewBag.Name = null;
+                        ViewBag.Id = null;
                         ViewBag.isAdmin = null;
                     }
                 }
@@ -69,7 +74,7 @@ namespace CarSharing.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -98,7 +103,7 @@ namespace CarSharing.Controllers
 
         public IActionResult Login()
         {
-            if (IsLoggedIn())
+            if (_helper.IsLoggedIn())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -143,7 +148,7 @@ namespace CarSharing.Controllers
         // GET: Users/Register
         public IActionResult Register()
         {
-            if (IsLoggedIn())
+            if (_helper.IsLoggedIn())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -183,20 +188,20 @@ namespace CarSharing.Controllers
             return View(user);
         }
 
-        public async Task<IActionResult> Account()
+        public async Task<IActionResult> Account(int? id)
         {
-            if (IsLoggedIn())
+            if (_helper.IsLoggedIn())
             {
-                string name = ViewBag.Name;
                 var user = await _context.Users
-                    .FirstOrDefaultAsync(u => u.Name == name);
+                    .FirstOrDefaultAsync(u => u.Id == id);
                 var rents = await _context.Rents
-                    .Include(r => r.Car!.Brand)  // Include the Car navigation property
-                    .Where(r => r.User!.Name == name)
+                    .Include(r => r.Car!.Brand) 
+                    .Where(r => r.User!.Id == id)
                     .ToListAsync();
                 var reviews = await _context.RatingAndReviews
                     .Include(r => r.Car!.Brand!)
                     .Include(r => r.User!)
+                    .Where(r => r.User!.Id == id)
                     .ToListAsync();
 
                 if (user != null && rents != null)
@@ -218,10 +223,382 @@ namespace CarSharing.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        public async Task<IActionResult> ChatList(int? id)
+        {
+            if (!_helper.IsLoggedIn() || _helper.GetCurrentUserId() != id)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var chats = await _context.Chats
+                .Include(c => c.UsersList)
+                .Include(c => c.Messages)
+                .Where(c => c.UsersList.Any(u => u.Id == user.Id))
+                .ToListAsync();
+            // Retrieve IDs of users who are already in chats with the specified user
+            var usersInChatsIds = chats.Where(u => u.UsersList.Count < 3).SelectMany(c => c.UsersList.Select(u => u.Id)).Distinct().ToList();
+
+            // Retrieve users who are not already in chats with the specified user
+            var usersNotInChats = await _context.Users
+                .Where(u => u.Id != id && !usersInChatsIds.Contains(u.Id))
+                .ToListAsync();
+
+            var chatViewModel = new ChatViewModel
+            {
+                Chats = chats,
+                Users = usersNotInChats
+            };
+
+            return View(chatViewModel);
+        }
+
+        public async Task<IActionResult> CreateChat(int? creatorId, int? memberId)
+        {
+            if (creatorId == null || memberId == null)
+            {
+                // Handle the case where creatorId or memberId is null
+                return BadRequest("CreatorId and MemberId are required.");
+            }
+
+            // Retrieve the users from the database
+            var creator = await _context.Users.FindAsync(creatorId);
+            var member = await _context.Users.FindAsync(memberId);
+
+            if (creator == null || member == null)
+            {
+                // Handle the case where either creator or member is not found
+                return NotFound("One or both users not found.");
+            }
+
+            var isChatExist = await _context.Chats
+                .Include(c => c.UsersList)
+                .Where(c => c.UsersList.Contains(creator) && c.UsersList.Contains(member) && c.UsersList.Count == 2)
+                .FirstOrDefaultAsync();
+
+            if (isChatExist != null)
+            {
+                return RedirectToAction("ShowChat", new { chatId = isChatExist.Id, userId = creator.Id });
+            }
+
+            // Create a new chat instance
+            var chat = new Chat();
+
+            // Add users to the chat
+            chat.UsersList.Add(creator);
+            chat.UsersList.Add(member);
+
+            try
+            {
+                // Save the chat to the database
+                _context.Chats.Add(chat);
+                await _context.SaveChangesAsync();
+
+                // Redirect to a page where the newly created chat can be viewed
+                return RedirectToAction("ChatList", new {id = creator.Id});
+            }
+            catch (Exception ex)
+            {
+                // Handle any errors that occur during saving
+                return StatusCode(500, $"An error occurred while creating the chat: {ex.Message}");
+            }
+        }
+
+        public async Task<IActionResult> ShowChat(int? chatId, int? userId)
+        {
+            if (!_helper.IsLoggedIn() && _helper.GetCurrentUserId() != userId)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (chatId == null)
+            {
+                return BadRequest("ChatId is required.");
+            }
+
+            // Retrieve the chat from the database including its messages
+            var chat = await _context.Chats
+                .Include(c => c.Messages)
+                .Include(c => c.UsersList)
+                .FirstOrDefaultAsync(c => c.Id == chatId);
+            var usersInChat = await _context.Users
+                .Where(u => u.ChatsList.Any(c => c.Id == chatId) && u.Id != userId)
+                .ToListAsync();
+            var usersNotInChat = await _context.Users
+                .Where(u => !u.ChatsList.Any(c => c.Id == chatId))
+                .ToListAsync();
+
+            var user = await _context.Users
+                .FirstOrDefaultAsync(c => c.Id == userId);
+
+            var chatData = new ShowChatViewModel
+            {
+                Chat = chat,
+                UsersInChat = usersInChat,
+                UsersNotInChat = usersNotInChat
+            };
+
+            if (chat == null && user == null)
+            {
+                return NotFound("Chat not found.");
+            }
+
+            if (!chat!.UsersList.Contains(user!))
+            {
+                return NotFound("You have no access to this chat.");
+            }
+
+            return View(chatData);
+        }
+
+        public async Task<IActionResult> DeleteChat(int? chatId)
+        {
+            if (chatId == null)
+            {
+                return BadRequest("ChatId is required.");
+            }
+
+            // Retrieve the chat from the database including its users
+            var chat = await _context.Chats
+                .Include(c => c.UsersList)
+                .FirstOrDefaultAsync(c => c.Id == chatId);
+
+            if (chat == null)
+            {
+                return NotFound("Chat not found.");
+            }
+
+            var userId = _helper.GetCurrentUserId();
+
+            // Retrieve the current user from the database
+            var currentUser = await _context.Users.FindAsync(userId);
+
+            if (currentUser == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Check if the current user has access to the chat
+            if (chat.UsersList.Contains(currentUser))
+            {
+                _context.Chats.Remove(chat);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                return BadRequest("Current user has no access to this chat!");
+            }
+
+            return RedirectToAction("ChatList", new { id = userId });
+        }
+
+        public async Task<IActionResult> CreateMessage(int? chatId, string messageText)
+        {
+            if (chatId == null || string.IsNullOrEmpty(messageText))
+            {
+                return BadRequest("ChatId and message text are required.");
+            }
+
+            // Retrieve the chat from the database
+            var chat = await _context.Chats
+                .Include(c => c.UsersList)
+                .Include(c => c.Messages) // Include messages for updating the chat
+                .FirstOrDefaultAsync(c => c.Id == chatId);
+
+            if (chat == null)
+            {
+                return NotFound("Chat not found.");
+            }
+
+            // Check if the current user has access to the chat
+            var currentUserId = ViewBag.Id;
+            if (!chat.UsersList.Any(u => u.Id == currentUserId))
+            {
+                return Unauthorized("You don't have access to this chat.");
+            }
+
+            // Create a new message
+            var message = new Message
+            {
+                Text = messageText,
+                UserId = currentUserId,
+                ChatId = chat.Id,
+                CreateTime = DateTime.Now
+            };
+
+            try
+            {
+                // Add the message to the chat and save changes
+                chat.Messages.Add(message);
+
+                // Update the chat with the latest message information
+                chat.Messages.Add(message);
+                await _context.SaveChangesAsync();
+
+                // Redirect to the chat view or any other appropriate action
+                return RedirectToAction("ShowChat", new { chatId = chatId, userId = currentUserId });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception and return an error response
+                return StatusCode(500, $"An error occurred while creating the message: {ex.Message}");
+            }
+        }
+
+        public async Task<IActionResult> DeleteMessage(int? messageId, int? chatId, int? userId)
+        {
+            if (userId != _helper.GetCurrentUserId())
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (messageId == null)
+            {
+                return BadRequest("MessageId is required.");
+            }
+
+            // Retrieve the message from the database
+            var message = await _context.Messages.FindAsync(messageId);
+
+            if (message == null)
+            {
+                return NotFound("Message not found.");
+            }
+
+            try
+            {
+                // Remove the message from the context and save changes
+                _context.Messages.Remove(message);
+                await _context.SaveChangesAsync();
+
+                // Redirect to the chat view or any other appropriate action
+                return RedirectToAction("ShowChat", new { chatId = chatId, userId = userId });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception and return an error response
+                return StatusCode(500, $"An error occurred while deleting the message: {ex.Message}");
+            }
+        }
+
+        public async Task<IActionResult> AddUserToChat(int? chatId, int? userId)
+        {
+            if (chatId == null || userId == null)
+            {
+                return BadRequest("ChatId and UserId are required.");
+            }
+
+            // Retrieve the chat from the database
+            var chat = await _context.Chats
+                .Include(c => c.UsersList)
+                .FirstOrDefaultAsync(c => c.Id == chatId);
+
+            if (chat == null)
+            {
+                return NotFound("Chat not found.");
+            }
+
+            // Retrieve the user to be added to the chat
+            var userToAdd = await _context.Users.FindAsync(userId);
+
+            if (userToAdd == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Check if the user is already in the chat
+            if (chat.UsersList.Contains(userToAdd))
+            {
+                return BadRequest("User is already in the chat.");
+            }
+
+            var currentUserId = _helper.GetCurrentUserId();
+            if (currentUserId == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            try
+            {
+                // Add the user to the chat and save changes
+                chat.UsersList.Add(userToAdd);
+                await _context.SaveChangesAsync();
+
+                // Redirect to the chat view or any other appropriate action
+                return RedirectToAction("ShowChat", new { chatId = chatId, userId = currentUserId });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception and return an error response
+                return StatusCode(500, $"An error occurred while adding the user to the chat: {ex.Message}");
+            }
+        }
+
+        public async Task<IActionResult> DeleteUserFromChat(int? chatId, int? userId)
+        {
+            if (chatId == null || userId == null)
+            {
+                return BadRequest("ChatId and UserId are required.");
+            }
+
+            // Retrieve the chat from the database
+            var chat = await _context.Chats
+                .Include(c => c.UsersList)
+                .FirstOrDefaultAsync(c => c.Id == chatId);
+
+            if (chat == null)
+            {
+                return NotFound("Chat not found.");
+            }
+
+            // Retrieve the user to be removed from the chat
+            var userToRemove = await _context.Users.FindAsync(userId);
+
+            if (userToRemove == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            // Check if the user is in the chat
+            if (!chat.UsersList.Contains(userToRemove))
+            {
+                return BadRequest("User is not in the chat.");
+            }
+
+            var currentUserId = _helper.GetCurrentUserId();
+            if (currentUserId == null)
+            {
+                return NotFound("User not found.");
+            }
+
+            try
+            {
+                // Remove the user from the chat and save changes
+                chat.UsersList.Remove(userToRemove);
+                await _context.SaveChangesAsync();
+
+                // Redirect to the chat view or any other appropriate action
+                return RedirectToAction("ShowChat", new { chatId = chatId, userId = currentUserId });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception and return an error response
+                return StatusCode(500, $"An error occurred while removing the user from the chat: {ex.Message}");
+            }
+        }
+
+
         // GET: Users/Create
         public IActionResult Create()
         {
-            if (!IsAdminJoined())
+            if (!_helper.IsAdminJoined())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -256,7 +633,7 @@ namespace CarSharing.Controllers
         // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (!IsAdminJoined() && id != GetCurrentUserId())
+            if (!_helper.IsAdminJoined() && id != _helper.GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -330,7 +707,7 @@ namespace CarSharing.Controllers
                         _httpContextAccessor.HttpContext!.Session.SetInt32("isAdmin", user.IsAdmin ? 1 : 0);
                     }
 
-                    if (user.Id == GetCurrentUserId() && !IsAdminJoined())
+                    if (user.Id == _helper.GetCurrentUserId() && !_helper.IsAdminJoined())
                     {
                         return RedirectToAction(nameof(Account));
                     }
@@ -354,7 +731,7 @@ namespace CarSharing.Controllers
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (!IsAdminJoined() && id != GetCurrentUserId())
+            if (!_helper.IsAdminJoined() && id != _helper.GetCurrentUserId())
             {
                 return RedirectToAction("Index", "Home");
             }
@@ -420,18 +797,6 @@ namespace CarSharing.Controllers
         private bool UserExists(int id)
         {
             return _context.Users.Any(e => e.Id == id);
-        }
-        private bool IsAdminJoined()
-        {
-            return _httpContextAccessor.HttpContext!.Session.GetInt32("isAdmin") == 1;
-        }
-        private int? GetCurrentUserId()
-        {
-            return _httpContextAccessor.HttpContext!.Session.GetInt32("Id");
-        }
-        private bool IsLoggedIn()
-        {
-            return !_httpContextAccessor.HttpContext!.Session.GetString("Name").IsNullOrEmpty();
         }
     }
 }

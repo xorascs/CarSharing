@@ -25,5 +25,7 @@ namespace CarSharing.Models
         [Display(Name = "Postal Code")]
         [DataType(DataType.PostalCode)]
         public required string PostalCode { get; set; }
+
+        public List<Chat> ChatsList { get; set; } = new List<Chat>();
     }
 }
