@@ -1,37 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\1\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{1529D860-3A7E-4A09-AF79-C326546F8CD2}|CarSharing.csproj|e:\\1\\views\\users\\showchat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{1529D860-3A7E-4A09-AF79-C326546F8CD2}|CarSharing.csproj|solutionrelative:views\\users\\showchat.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    }
-  ],
+  "WorkspaceRootPath": "E:\\Projects\\c#\\CarSharing\\",
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ShowChat.cshtml",
-              "DocumentMoniker": "E:\\1\\Views\\Users\\ShowChat.cshtml",
-              "RelativeDocumentMoniker": "Views\\Users\\ShowChat.cshtml",
-              "ToolTip": "E:\\1\\Views\\Users\\ShowChat.cshtml",
-              "RelativeToolTip": "Views\\Users\\ShowChat.cshtml",
-              "ViewState": "AQIAAFEAAAAAAAAAAAAIwGcAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-05-03T16:43:26.193Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

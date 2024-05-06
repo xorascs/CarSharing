@@ -17,127 +17,127 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CarSharing
 build_property.RootNamespace = CarSharing
-build_property.ProjectDir = E:\1\
+build_property.ProjectDir = E:\Projects\c#\CarSharing\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = E:\1
+build_property.MSBuildProjectDirectory = E:\Projects\c#\CarSharing
 build_property._RazorSourceGeneratorDebug = 
 
-[E:/1/Views/Brands/Create.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Brands/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Brands/Delete.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Brands/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Brands/Edit.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Brands/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Brands/Index.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Brands/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnJhbmRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Cars/Create.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Cars/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Cars/Delete.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Cars/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Cars/Details.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Cars/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Cars/Edit.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Cars/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Cars/Index.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Cars/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2Fyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Home/Index.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/RatingAndReviews/Delete.cshtml]
+[E:/Projects/c\#/CarSharing/Views/RatingAndReviews/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nQW5kUmV2aWV3c1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/RatingAndReviews/Edit.cshtml]
+[E:/Projects/c\#/CarSharing/Views/RatingAndReviews/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmF0aW5nQW5kUmV2aWV3c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Rents/Delete.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Rents/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudHNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Rents/Edit.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Rents/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Rents/Index.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Rents/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVudHNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Shared/Error.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Shared/_ValidationScriptsPartial.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/Account.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/Account.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQWNjb3VudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/ChatList.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/ChatList.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ2hhdExpc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/Create.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/Delete.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/Edit.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/Index.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/Login.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/Register.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Users/ShowChat.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Users/ShowChat.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlcnNcU2hvd0NoYXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/_ViewImports.cshtml]
+[E:/Projects/c\#/CarSharing/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/_ViewStart.cshtml]
+[E:/Projects/c\#/CarSharing/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[E:/1/Views/Shared/_Layout.cshtml]
+[E:/Projects/c\#/CarSharing/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-i6p50g3dfa

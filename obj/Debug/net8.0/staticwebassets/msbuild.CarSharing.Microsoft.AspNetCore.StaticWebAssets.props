@@ -1216,6 +1216,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\68b61c50-b8bb-493f-95f4-89e89e70b722_1591f26a-0d88-41df-a216-3d1dc85632b7.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>CarSharing</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CarSharing</BasePath>
+      <RelativePath>uploads/68b61c50-b8bb-493f-95f4-89e89e70b722_1591f26a-0d88-41df-a216-3d1dc85632b7.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\68b61c50-b8bb-493f-95f4-89e89e70b722_1591f26a-0d88-41df-a216-3d1dc85632b7.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>CarSharing</SourceId>

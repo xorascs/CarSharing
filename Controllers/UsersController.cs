@@ -220,7 +220,7 @@ namespace CarSharing.Controllers
             }
 
             // If user is not logged in or user not found, redirect to home
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Users");
         }
 
         public async Task<IActionResult> ChatList(int? id)

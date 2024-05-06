@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5GmD09IBz5OpMLVAalyxD2kzbhNY38wks+t/SC4+zjibJYQwH//ZEfIjYLtRcS1cdSn5841LHyQLU6YwFR4yIQ==",
+  "dgSpecHash": "OZBQbS4nmBtZocF2rZQ3PmPcFwE9TE7TWpCiCBAijqDHsbfdgGydBJPaBxumXXxZq3b7t2BvTT56XR2YF2ExLQ==",
   "success": true,
-  "projectFilePath": "E:\\1\\CarSharing.csproj",
+  "projectFilePath": "E:\\Projects\\c#\\CarSharing\\CarSharing.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\xoras\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\xoras\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
