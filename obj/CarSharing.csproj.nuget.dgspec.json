@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Projects\\c#\\CarSharing\\CarSharing.csproj": {}
+    "C:\\Users\\owner\\Source\\Repos\\CarSharing\\CarSharing.csproj": {}
   },
   "projects": {
-    "E:\\Projects\\c#\\CarSharing\\CarSharing.csproj": {
+    "C:\\Users\\owner\\Source\\Repos\\CarSharing\\CarSharing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Projects\\c#\\CarSharing\\CarSharing.csproj",
+        "projectUniqueName": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\CarSharing.csproj",
         "projectName": "CarSharing",
-        "projectPath": "E:\\Projects\\c#\\CarSharing\\CarSharing.csproj",
-        "packagesPath": "C:\\Users\\xoras\\.nuget\\packages\\",
-        "outputPath": "E:\\Projects\\c#\\CarSharing\\obj\\",
+        "projectPath": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\CarSharing.csproj",
+        "packagesPath": "C:\\Users\\owner\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\xoras\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\owner\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,11 +34,6 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -101,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

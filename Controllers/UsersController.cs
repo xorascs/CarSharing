@@ -114,11 +114,6 @@ namespace CarSharing.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login([Bind("Id,Login,Password")] User user)
         {
-            if (ModelState.IsValid)
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
             var exitingUser = await _context.Users.FirstOrDefaultAsync(
                 u => u.Login == user.Login && 
                 u.Password == user.Password);

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0gBbJ9woBED26FK59HI75x+SHTP4P3dyAO9d26aIfz8=",
+  "Hash": "0slIaBt9P93hXX9/gmRb+MK3/AQ562PcJQG2JQg5UXE=",
   "Source": "CarSharing",
   "BasePath": "_content/CarSharing",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CarSharing\\wwwroot",
       "Source": "CarSharing",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\xoras\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
+      "Identity": "C:\\Users\\owner\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\xoras\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\owner\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\xoras\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\owner\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\Microsoft.AspNetCore.Components.QuickGrid.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\xoras\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js",
+      "Identity": "C:\\Users\\owner\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js",
       "SourceId": "Microsoft.AspNetCore.Components.QuickGrid",
       "SourceType": "Package",
-      "ContentRoot": "C:\\Users\\xoras\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
+      "ContentRoot": "C:\\Users\\owner\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\",
       "BasePath": "_content/Microsoft.AspNetCore.Components.QuickGrid",
       "RelativePath": "QuickGrid.razor.js",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\xoras\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js"
+      "OriginalItemSpec": "C:\\Users\\owner\\.nuget\\packages\\microsoft.aspnetcore.components.quickgrid\\8.0.3\\staticwebassets\\QuickGrid.razor.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CarSharing.styles.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CarSharing.styles.css",
       "SourceId": "CarSharing",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "CarSharing.styles.css",
       "AssetKind": "All",
@@ -71,13 +71,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\Projects\\c#\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CarSharing.styles.css"
+      "OriginalItemSpec": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\bundle\\CarSharing.styles.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CarSharing.bundle.scp.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CarSharing.bundle.scp.css",
       "SourceId": "CarSharing",
       "SourceType": "Computed",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "CarSharing.bundle.scp.css",
       "AssetKind": "All",
@@ -90,13 +90,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "E:\\Projects\\c#\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CarSharing.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\CarSharing.bundle.scp.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\css\\site.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\1.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\1.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/1.jpg",
       "AssetKind": "All",
@@ -131,10 +131,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\1.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\2.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\2.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/2.jpg",
       "AssetKind": "All",
@@ -150,10 +150,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\2.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\3.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\3.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/3.jpg",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\3.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\4.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\4.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/4.jpg",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\4.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\5.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\5.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/5.jpg",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\5.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\6.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\6.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/6.jpg",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\6.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\7.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\7.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/7.jpg",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\7.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\8.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\8.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/8.jpg",
       "AssetKind": "All",
@@ -264,10 +264,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\8.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\examples\\9.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\examples\\9.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "examples/9.jpg",
       "AssetKind": "All",
@@ -283,10 +283,10 @@
       "OriginalItemSpec": "wwwroot\\examples\\9.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\favicon.ico",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -302,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\ico.ico",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\ico.ico",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "ico.ico",
       "AssetKind": "All",
@@ -321,10 +321,10 @@
       "OriginalItemSpec": "wwwroot\\ico.ico"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\js\\site.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\js\\site.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "js/site.js",
       "AssetKind": "All",
@@ -340,10 +340,10 @@
       "OriginalItemSpec": "wwwroot\\js\\site.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css",
       "AssetKind": "All",
@@ -359,10 +359,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.css.map",
       "AssetKind": "All",
@@ -378,10 +378,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css",
       "AssetKind": "All",
@@ -397,10 +397,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -416,10 +416,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css",
       "AssetKind": "All",
@@ -435,10 +435,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.css.map",
       "AssetKind": "All",
@@ -454,10 +454,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css",
       "AssetKind": "All",
@@ -473,10 +473,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
       "AssetKind": "All",
@@ -492,10 +492,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css",
       "AssetKind": "All",
@@ -511,10 +511,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.css.map",
       "AssetKind": "All",
@@ -530,10 +530,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css",
       "AssetKind": "All",
@@ -549,10 +549,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
       "AssetKind": "All",
@@ -568,10 +568,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
       "AssetKind": "All",
@@ -587,10 +587,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
       "AssetKind": "All",
@@ -606,10 +606,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
       "AssetKind": "All",
@@ -625,10 +625,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
       "AssetKind": "All",
@@ -644,10 +644,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css",
       "AssetKind": "All",
@@ -663,10 +663,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.css.map",
       "AssetKind": "All",
@@ -682,10 +682,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css",
       "AssetKind": "All",
@@ -701,10 +701,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
       "AssetKind": "All",
@@ -720,10 +720,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
       "AssetKind": "All",
@@ -739,10 +739,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
       "AssetKind": "All",
@@ -758,10 +758,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
       "AssetKind": "All",
@@ -777,10 +777,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
       "AssetKind": "All",
@@ -796,10 +796,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css",
       "AssetKind": "All",
@@ -815,10 +815,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.css.map",
       "AssetKind": "All",
@@ -834,10 +834,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css",
       "AssetKind": "All",
@@ -853,10 +853,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
       "AssetKind": "All",
@@ -872,10 +872,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
       "AssetKind": "All",
@@ -891,10 +891,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
       "AssetKind": "All",
@@ -910,10 +910,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
       "AssetKind": "All",
@@ -929,10 +929,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
       "AssetKind": "All",
@@ -948,10 +948,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js",
       "AssetKind": "All",
@@ -967,10 +967,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.js.map",
       "AssetKind": "All",
@@ -986,10 +986,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js",
       "AssetKind": "All",
@@ -1005,10 +1005,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
       "AssetKind": "All",
@@ -1024,10 +1024,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js",
       "AssetKind": "All",
@@ -1043,10 +1043,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.js.map",
       "AssetKind": "All",
@@ -1062,10 +1062,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js",
       "AssetKind": "All",
@@ -1081,10 +1081,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
       "AssetKind": "All",
@@ -1100,10 +1100,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js",
       "AssetKind": "All",
@@ -1119,10 +1119,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.js.map",
       "AssetKind": "All",
@@ -1138,10 +1138,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js",
       "AssetKind": "All",
@@ -1157,10 +1157,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/dist/js/bootstrap.min.js.map",
       "AssetKind": "All",
@@ -1176,10 +1176,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\bootstrap\\LICENSE",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/bootstrap/LICENSE",
       "AssetKind": "All",
@@ -1195,10 +1195,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery/dist/jquery.js",
       "AssetKind": "All",
@@ -1214,10 +1214,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery/dist/jquery.min.js",
       "AssetKind": "All",
@@ -1233,10 +1233,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery/dist/jquery.min.map",
       "AssetKind": "All",
@@ -1252,10 +1252,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery/LICENSE.txt",
       "AssetKind": "All",
@@ -1271,10 +1271,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.js",
       "AssetKind": "All",
@@ -1290,10 +1290,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation/dist/additional-methods.min.js",
       "AssetKind": "All",
@@ -1309,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.js",
       "AssetKind": "All",
@@ -1328,10 +1328,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation/dist/jquery.validate.min.js",
       "AssetKind": "All",
@@ -1347,10 +1347,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation/LICENSE.md",
       "AssetKind": "All",
@@ -1366,10 +1366,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
       "AssetKind": "All",
@@ -1385,10 +1385,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
       "AssetKind": "All",
@@ -1404,10 +1404,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "lib/jquery-validation-unobtrusive/LICENSE.txt",
       "AssetKind": "All",
@@ -1423,10 +1423,10 @@
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\0b53a4a1-dfc6-497f-affc-7783458125cd_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\0b53a4a1-dfc6-497f-affc-7783458125cd_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/0b53a4a1-dfc6-497f-affc-7783458125cd_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "AssetKind": "All",
@@ -1442,10 +1442,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\0b53a4a1-dfc6-497f-affc-7783458125cd_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\1b0fdee0-2230-49f6-95cf-214ed4fc6664_2024-mercedes-benz-e-class.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\1b0fdee0-2230-49f6-95cf-214ed4fc6664_2024-mercedes-benz-e-class.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/1b0fdee0-2230-49f6-95cf-214ed4fc6664_2024-mercedes-benz-e-class.jpg",
       "AssetKind": "All",
@@ -1461,10 +1461,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\1b0fdee0-2230-49f6-95cf-214ed4fc6664_2024-mercedes-benz-e-class.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg",
       "AssetKind": "All",
@@ -1480,10 +1480,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\1c9e7d6b-8245-4374-9d70-f12e7e01a59f_22.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg",
       "AssetKind": "All",
@@ -1499,10 +1499,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\27c51281-3da5-466f-8605-abc16669095e_2024-mercedes-benz-e-class.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "AssetKind": "All",
@@ -1518,10 +1518,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\368d941b-a136-413f-ba08-bc6afc99073f_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\68b61c50-b8bb-493f-95f4-89e89e70b722_1591f26a-0d88-41df-a216-3d1dc85632b7.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\68b61c50-b8bb-493f-95f4-89e89e70b722_1591f26a-0d88-41df-a216-3d1dc85632b7.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/68b61c50-b8bb-493f-95f4-89e89e70b722_1591f26a-0d88-41df-a216-3d1dc85632b7.jpg",
       "AssetKind": "All",
@@ -1537,10 +1537,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\68b61c50-b8bb-493f-95f4-89e89e70b722_1591f26a-0d88-41df-a216-3d1dc85632b7.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg",
       "AssetKind": "All",
@@ -1556,10 +1556,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\6ed61e5d-0fe3-47bb-a3b4-b140e5768fb4_33.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\7ae862e2-d99c-41bc-a92b-b446b25b19ae_20230426012532_2.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\7ae862e2-d99c-41bc-a92b-b446b25b19ae_20230426012532_2.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/7ae862e2-d99c-41bc-a92b-b446b25b19ae_20230426012532_2.jpg",
       "AssetKind": "All",
@@ -1575,10 +1575,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\7ae862e2-d99c-41bc-a92b-b446b25b19ae_20230426012532_2.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "AssetKind": "All",
@@ -1594,10 +1594,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\7fcd64a6-ad6a-4de0-8420-a8b5e1fbccb2_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\876fbbd3-4a0c-4dc6-b972-562b1b8a7586_1.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\876fbbd3-4a0c-4dc6-b972-562b1b8a7586_1.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/876fbbd3-4a0c-4dc6-b972-562b1b8a7586_1.jpg",
       "AssetKind": "All",
@@ -1613,10 +1613,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\876fbbd3-4a0c-4dc6-b972-562b1b8a7586_1.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg",
       "AssetKind": "All",
@@ -1632,10 +1632,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\8937d637-6174-4ffe-9ed4-627289617317_20230426012532_2.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\9af5e686-2ed5-4e09-a435-7062027d71f4_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\9af5e686-2ed5-4e09-a435-7062027d71f4_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/9af5e686-2ed5-4e09-a435-7062027d71f4_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "AssetKind": "All",
@@ -1651,10 +1651,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\9af5e686-2ed5-4e09-a435-7062027d71f4_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg",
       "AssetKind": "All",
@@ -1670,10 +1670,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\a42254f1-e63a-43d6-9c0e-20285458f798_2.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\a4bcd130-c742-4d95-9d84-2c0c867ff119_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\a4bcd130-c742-4d95-9d84-2c0c867ff119_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/a4bcd130-c742-4d95-9d84-2c0c867ff119_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg",
       "AssetKind": "All",
@@ -1689,10 +1689,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\a4bcd130-c742-4d95-9d84-2c0c867ff119_2024-mercedes-benz-e-class-exterior-105-6446a2cb7003d.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg",
       "AssetKind": "All",
@@ -1708,10 +1708,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\bb5a7725-f6b4-46f1-bacd-883acd968631_3.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\bef4d6ca-ca8f-4c64-b382-f1ec2737b63d_11.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\bef4d6ca-ca8f-4c64-b382-f1ec2737b63d_11.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/bef4d6ca-ca8f-4c64-b382-f1ec2737b63d_11.jpg",
       "AssetKind": "All",
@@ -1727,10 +1727,10 @@
       "OriginalItemSpec": "wwwroot\\uploads\\bef4d6ca-ca8f-4c64-b382-f1ec2737b63d_11.jpg"
     },
     {
-      "Identity": "E:\\Projects\\c#\\CarSharing\\wwwroot\\uploads\\Login.jpg",
+      "Identity": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\uploads\\Login.jpg",
       "SourceId": "CarSharing",
       "SourceType": "Discovered",
-      "ContentRoot": "E:\\Projects\\c#\\CarSharing\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\owner\\Source\\Repos\\CarSharing\\wwwroot\\",
       "BasePath": "_content/CarSharing",
       "RelativePath": "uploads/Login.jpg",
       "AssetKind": "All",
